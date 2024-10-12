@@ -1,0 +1,157 @@
+[  
+    {
+        "id": 1,
+        "N": 6,
+        "R": 16,
+        "regions": [
+            {
+                "oper": 6,
+                "result": 1,
+                "e": 3,
+                "coordenades": [
+                    { "x": 1, "y": 1 },
+                    { "x": 1, "y": 2 },
+                    { "x": 2, "y": 1 }
+                ]
+            },
+            {
+                "oper": 1,
+                "result": 14,
+                "e": 4,
+                "coordenades": [
+                    { "x": 1, "y": 3 },
+                    { "x": 2, "y": 2 },
+                    { "x": 2, "y": 3 },
+                    { "x": 2, "y": 4 }
+                ]
+            },
+            {
+                "oper": 5,
+                "result": 5,
+                "e": 2,
+                "coordenades": [
+                    { "x": 1, "y": 4 },
+                    { "x": 1, "y": 5 }
+                ]
+            },
+            {
+                "oper": 0,
+                "result": 4,
+                "e": 1,
+                "coordenades": [
+                    { "x": 2, "y": 5, "cont": 4, "ini": 1}
+                ]
+            },
+            {
+                "oper": 4,
+                "result": 2,
+                "e": 2,
+                "coordenades": [
+                    { "x": 1, "y": 6 },
+                    { "x": 2, "y": 6 }
+                ]
+            },
+            {
+                "oper": 0,
+                "result": 5,
+                "e": 1,
+                "coordenades": [
+                    { "x": 4, "y": 2, "cont": 5, "ini": 1}
+                ]
+            },
+            {
+                "oper": 1,
+                "result": 16,
+                "e": 4,
+                "coordenades": [
+                    { "x": 3, "y": 1 },
+                    { "x": 3, "y": 2 },
+                    { "x": 4, "y": 1 },
+                    { "x": 5, "y": 1 }
+                ]
+            },
+            {
+                "oper": 2,
+                "result": 2,
+                "e": 2,
+                "coordenades": [
+                    { "x": 3, "y": 3 },
+                    { "x": 3, "y": 4 }
+                ]
+            },
+            {
+                "oper": 1,
+                "result": 14,
+                "e": 4,
+                "coordenades": [
+                    { "x": 4, "y": 3 },
+                    { "x": 4, "y": 4 },
+                    { "x": 5, "y": 3 },
+                    { "x": 5, "y": 4 },
+                    { "x": 5, "y": 5 }
+                ]
+            },
+            {
+                "oper": 0,
+                "result": 3,
+                "e": 1,
+                "coordenades": [
+                    { "x": 4, "y": 5, "cont": 3, "ini": 1}
+                ]
+            },
+            {
+                "oper": 5,
+                "result": 6,
+                "e": 2,
+                "coordenades": [
+                    { "x": 3, "y": 5 },
+                    { "x": 3, "y": 6 }
+                ]
+            },
+            {
+                "oper": 0,
+                "result": 2,
+                "e": 1,
+                "coordenades": [
+                    { "x": 4, "y": 6, "cont": 2, "ini": 1}
+                ]
+            },
+            {
+                "oper": 0,
+                "result": 5,
+                "e": 1,
+                "coordenades": [
+                    { "x": 5, "y": 6, "cont": 5, "ini": 1}
+                ]
+            },
+            {
+                "oper": 0,
+                "result": 4,
+                "e": 1,
+                "coordenades": [
+                    { "x": 6, "y": 6, "cont": 4, "ini": 1}
+                ]
+            },
+            {
+                "oper": 6,
+                "result": 1,
+                "e": 2,
+                "coordenades": [
+                    { "x": 6, "y": 4 },
+                    { "x": 6, "y": 5 }
+                ]
+            },
+            {
+                "oper": 1,
+                "result": 16,
+                "e": 4,
+                "coordenades": [
+                    { "x": 6, "y": 1 },
+                    { "x": 6, "y": 2 },
+                    { "x": 5, "y": 2 },
+                    { "x": 6, "y": 3 }
+                ]
+            }
+        ]
+    }
+]

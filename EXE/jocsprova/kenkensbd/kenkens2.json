@@ -1,0 +1,162 @@
+[
+    {
+        "id": 21,
+        "N": 3,
+        "R": 5,
+        "regions": [
+            {
+                "oper": 0,
+                "result": 3,
+                "e": 1,
+                "coordenades": [
+                    { "x": 1, "y": 1, "cont": 3, "ini": 1}
+                ]
+            },
+            {
+                "oper": 0,
+                "result": 3,
+                "e": 1,
+                "coordenades": [
+                    { "x": 2, "y": 2, "cont": 3, "ini": 1}
+                ]
+            },
+            {
+                "oper": 0,
+                "result": 3,
+                "e": 1,
+                "coordenades": [
+                    { "x": 3, "y": 3, "cont": 3, "ini": 1}
+                ]
+            },
+            {
+                "oper": 3,
+                "result": 2,
+                "e":  3,
+                "coordenades": [
+                    { "x": 2, "y": 1 },
+                    { "x": 3, "y": 1 },
+                    { "x": 3, "y": 2 }
+                ]
+            },
+            {
+                "oper": 3,
+                "result": 2,
+                "e":  3,
+                "coordenades": [
+                    { "x": 1, "y": 2 },
+                    { "x": 1, "y": 3 },
+                    { "x": 2, "y": 3 }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "N": 5,
+        "R": 11,        
+        "regions": [
+            {
+                "oper": 3,
+                "result": 3,
+                "e": 3,
+                "coordenades": [
+                    { "x": 1, "y": 1 },
+                    { "x": 1, "y": 2 },
+                    { "x": 2, "y": 1 }
+                ]
+            },
+            {
+                "oper": 1,
+                "result": 8,
+                "e": 4,
+                "coordenades": [
+                    { "x": 1, "y": 3 },
+                    { "x": 1, "y": 4 },
+                    { "x": 1, "y": 5 },
+                    { "x": 2, "y": 4 }
+                ]
+            },
+            {
+                "oper": 1,
+                "result": 10,
+                "e": 4,
+                "coordenades": [
+                    { "x": 2, "y": 2 },
+                    { "x": 2, "y": 3 },
+                    { "x": 3, "y": 2 },
+                    { "x": 3, "y": 3 }
+                ]
+            },
+            {
+                "oper": 0,
+                "result": 4,
+                "e": 1,
+                "coordenades": [
+                    { "x": 3, "y": 1, "cont": 4, "ini": 1}
+                ]
+            },
+            {
+                "oper": 0,
+                "result": 2,
+                "e": 1,
+                "coordenades": [
+                    { "x": 4, "y": 1, "cont": 2, "ini": 1}
+                ]
+            },
+            {
+                "oper": 0,
+                "result": 4,
+                "e": 1,
+                "coordenades": [
+                    { "x": 4, "y": 2, "cont": 4, "ini": 1}
+                ]
+            },
+            {
+                "oper": 0,
+                "result": 5,
+                "e": 1,
+                "coordenades": [
+                    { "x": 5, "y": 3, "cont": 5, "ini": 1}
+                ]
+            },
+            {
+                "oper": 1,
+                "result": 4,
+                "e": 2,
+                "coordenades": [
+                    { "x": 5, "y": 1 },
+                    { "x": 5, "y": 2 }
+                ]
+            },
+            {
+                "oper": 4,
+                "result": 3,
+                "e": 2,
+                "coordenades": [
+                    { "x": 4, "y": 3 },
+                    { "x": 4, "y": 4 }
+                ]
+            },
+            {
+                "oper": 4,
+                "result": 2,
+                "e": 2,
+                "coordenades": [
+                    { "x": 5, "y": 4 },
+                    { "x": 5, "y": 5 }
+                ]
+            },
+            {
+                "oper": 1,
+                "result": 15,
+                "e": 4,
+                "coordenades": [
+                    { "x": 2, "y": 5 },
+                    { "x": 3, "y": 5 },
+                    { "x": 3, "y": 4 },
+                    { "x": 4, "y": 5 }
+                ]
+            }
+        ]
+    },{"id":28,"N":7,"R":18,"regions":[{"oper":"1","result":15,"e":4,"coordenades":[{"x":1,"y":1},{"x":2,"y":1},{"x":1,"y":2},{"x":1,"y":3}]},{"oper":"0","result":3,"e":1,"coordenades":[{"x":2,"y":2}]},{"oper":"1","result":16,"e":4,"coordenades":[{"x":3,"y":1},{"x":4,"y":1},{"x":3,"y":2},{"x":4,"y":2}]},{"oper":"1","result":14,"e":4,"coordenades":[{"x":5,"y":1},{"x":6,"y":1},{"x":5,"y":2},{"x":6,"y":2}]},{"oper":"1","result":12,"e":2,"coordenades":[{"x":7,"y":1},{"x":7,"y":2}]},{"oper":"6","result":3,"e":2,"coordenades":[{"x":2,"y":3},{"x":3,"y":3}]},{"oper":"4","result":2,"e":2,"coordenades":[{"x":1,"y":4},{"x":2,"y":4}]},{"oper":"6","result":1,"e":2,"coordenades":[{"x":1,"y":5},{"x":1,"y":6}]},{"oper":"0","result":5,"e":1,"coordenades":[{"x":2,"y":5}]},{"oper":"1","result":8,"e":3,"coordenades":[{"x":3,"y":5},{"x":2,"y":6},{"x":3,"y":6}]},{"oper":"3","result":1470,"e":4,"coordenades":[{"x":4,"y":3},{"x":3,"y":4},{"x":4,"y":4},{"x":5,"y":4}]},{"oper":"3","result":30,"e":4,"coordenades":[{"x":5,"y":3},{"x":6,"y":3},{"x":7,"y":3},{"x":6,"y":4}]},{"oper":"0","result":1,"e":1,"coordenades":[{"x":7,"y":4}]},{"oper":"3","result":168,"e":4,"coordenades":[{"x":4,"y":5},{"x":5,"y":5},{"x":6,"y":5},{"x":7,"y":5}]},{"oper":"1","result":18,"e":4,"coordenades":[{"x":4,"y":6},{"x":5,"y":6},{"x":6,"y":6},{"x":4,"y":7}]},{"oper":"2","result":3,"e":2,"coordenades":[{"x":7,"y":6},{"x":7,"y":7}]},{"oper":"5","result":4,"e":2,"coordenades":[{"x":5,"y":7},{"x":6,"y":7}]},{"oper":"3","result":70,"e":3,"coordenades":[{"x":1,"y":7},{"x":2,"y":7},{"x":3,"y":7}]}]},{"id":22,"N":8,"R":23,"regions":[{"oper":2,"result":3,"e":2,"coordenades":[{"x":1,"y":1,"cont":0,"ini":0},{"x":1,"y":2,"cont":0,"ini":0}]},{"oper":1,"result":19,"e":4,"coordenades":[{"x":2,"y":1,"cont":0,"ini":0},{"x":3,"y":1,"cont":0,"ini":0},{"x":2,"y":2,"cont":0,"ini":0},{"x":3,"y":2,"cont":0,"ini":0}]},{"oper":3,"result":144,"e":3,"coordenades":[{"x":4,"y":1,"cont":0,"ini":0},{"x":5,"y":1,"cont":0,"ini":0},{"x":4,"y":2,"cont":0,"ini":0}]},{"oper":2,"result":4,"e":2,"coordenades":[{"x":6,"y":1,"cont":0,"ini":0},{"x":6,"y":2,"cont":0,"ini":0}]},{"oper":1,"result":8,"e":3,"coordenades":[{"x":7,"y":1,"cont":0,"ini":0},{"x":8,"y":1,"cont":0,"ini":0},{"x":8,"y":2,"cont":0,"ini":0}]},{"oper":0,"result":7,"e":1,"coordenades":[{"x":5,"y":2,"cont":0,"ini":0}]},{"oper":1,"result":17,"e":4,"coordenades":[{"x":7,"y":2,"cont":0,"ini":0},{"x":5,"y":3,"cont":0,"ini":0},{"x":6,"y":3,"cont":0,"ini":0},{"x":7,"y":3,"cont":0,"ini":0}]},{"oper":3,"result":56,"e":2,"coordenades":[{"x":8,"y":3,"cont":0,"ini":0},{"x":8,"y":4,"cont":0,"ini":0}]},{"oper":0,"result":1,"e":1,"coordenades":[{"x":4,"y":3,"cont":0,"ini":0}]},{"oper":1,"result":13,"e":3,"coordenades":[{"x":1,"y":3,"cont":0,"ini":0},{"x":2,"y":3,"cont":0,"ini":0},{"x":1,"y":4,"cont":0,"ini":0}]},{"oper":1,"result":21,"e":4,"coordenades":[{"x":3,"y":3,"cont":0,"ini":0},{"x":2,"y":4,"cont":0,"ini":0},{"x":3,"y":4,"cont":0,"ini":0},{"x":2,"y":5,"cont":0,"ini":0}]},{"oper":0,"result":3,"e":1,"coordenades":[{"x":1,"y":5,"cont":0,"ini":0}]},{"oper":3,"result":140,"e":4,"coordenades":[{"x":4,"y":4,"cont":0,"ini":0},{"x":5,"y":4,"cont":0,"ini":0},{"x":4,"y":5,"cont":0,"ini":0},{"x":5,"y":5,"cont":0,"ini":0}]},{"oper":3,"result":384,"e":4,"coordenades":[{"x":6,"y":4,"cont":0,"ini":0},{"x":7,"y":4,"cont":0,"ini":0},{"x":6,"y":5,"cont":0,"ini":0},{"x":7,"y":5,"cont":0,"ini":0}]},{"oper":3,"result":24,"e":3,"coordenades":[{"x":3,"y":5,"cont":0,"ini":0},{"x":2,"y":6,"cont":0,"ini":0},{"x":3,"y":6,"cont":0,"ini":0}]},{"oper":1,"result":12,"e":2,"coordenades":[{"x":1,"y":6,"cont":0,"ini":0},{"x":1,"y":7,"cont":0,"ini":0}]},{"oper":3,"result":96,"e":4,"coordenades":[{"x":2,"y":7,"cont":0,"ini":0},{"x":1,"y":8,"cont":0,"ini":0},{"x":2,"y":8,"cont":0,"ini":0},{"x":3,"y":8,"cont":0,"ini":0}]},{"oper":0,"result":7,"e":1,"coordenades":[{"x":3,"y":7,"cont":0,"ini":0}]},{"oper":3,"result":48,"e":4,"coordenades":[{"x":4,"y":6,"cont":0,"ini":0},{"x":4,"y":7,"cont":0,"ini":0},{"x":5,"y":7,"cont":0,"ini":0},{"x":6,"y":7,"cont":0,"ini":0}]},{"oper":1,"result":16,"e":3,"coordenades":[{"x":4,"y":8,"cont":0,"ini":0},{"x":5,"y":8,"cont":0,"ini":0},{"x":6,"y":8,"cont":0,"ini":0}]},{"oper":3,"result":40,"e":2,"coordenades":[{"x":5,"y":6,"cont":0,"ini":0},{"x":6,"y":6,"cont":0,"ini":0}]},{"oper":3,"result":36,"e":4,"coordenades":[{"x":8,"y":5,"cont":0,"ini":0},{"x":7,"y":6,"cont":0,"ini":0},{"x":8,"y":6,"cont":0,"ini":0},{"x":7,"y":7,"cont":0,"ini":0}]},{"oper":3,"result":84,"e":3,"coordenades":[{"x":8,"y":7,"cont":0,"ini":0},{"x":7,"y":8,"cont":0,"ini":0},{"x":8,"y":8,"cont":0,"ini":0}]}]}
+]

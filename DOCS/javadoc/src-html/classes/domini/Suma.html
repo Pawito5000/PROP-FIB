@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+</head>
+<body>
+<main role="main">
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span><a id="line.1">package classes.domini;</a>
+<span class="sourceLineNo">002</span><a id="line.2">import java.util.HashMap;</a>
+<span class="sourceLineNo">003</span><a id="line.3">import java.util.AbstractMap;</a>
+<span class="sourceLineNo">004</span><a id="line.4">/**</a>
+<span class="sourceLineNo">005</span><a id="line.5"> * Representa una operacio de suma.</a>
+<span class="sourceLineNo">006</span><a id="line.6"> * </a>
+<span class="sourceLineNo">007</span><a id="line.7"> * La suma te un resultat i un nombre de solucions possibles.</a>
+<span class="sourceLineNo">008</span><a id="line.8"> * Tambe proporciona metodes per calcular el resultat de la suma i les possibilitats del resultat.</a>
+<span class="sourceLineNo">009</span><a id="line.9"> */</a>
+<span class="sourceLineNo">010</span><a id="line.10">public class Suma extends Operacio {</a>
+<span class="sourceLineNo">011</span><a id="line.11">    private static Suma instance;</a>
+<span class="sourceLineNo">012</span><a id="line.12">    private Integer solucions;</a>
+<span class="sourceLineNo">013</span><a id="line.13"></a>
+<span class="sourceLineNo">014</span><a id="line.14">    /**</a>
+<span class="sourceLineNo">015</span><a id="line.15">     * Constructor de la classe Suma.</a>
+<span class="sourceLineNo">016</span><a id="line.16">     */</a>
+<span class="sourceLineNo">017</span><a id="line.17">    private Suma () {</a>
+<span class="sourceLineNo">018</span><a id="line.18">    } </a>
+<span class="sourceLineNo">019</span><a id="line.19"></a>
+<span class="sourceLineNo">020</span><a id="line.20">    /**</a>
+<span class="sourceLineNo">021</span><a id="line.21">     * Retorna la instancia de la suma.</a>
+<span class="sourceLineNo">022</span><a id="line.22">     * </a>
+<span class="sourceLineNo">023</span><a id="line.23">     * @return Suma</a>
+<span class="sourceLineNo">024</span><a id="line.24">     */</a>
+<span class="sourceLineNo">025</span><a id="line.25">    public static Suma ObtenirInstancia() {</a>
+<span class="sourceLineNo">026</span><a id="line.26">        if (instance == null) {</a>
+<span class="sourceLineNo">027</span><a id="line.27">            instance = new Suma();</a>
+<span class="sourceLineNo">028</span><a id="line.28">        }</a>
+<span class="sourceLineNo">029</span><a id="line.29">        return instance;</a>
+<span class="sourceLineNo">030</span><a id="line.30">    }</a>
+<span class="sourceLineNo">031</span><a id="line.31">    </a>
+<span class="sourceLineNo">032</span><a id="line.32">    /**</a>
+<span class="sourceLineNo">033</span><a id="line.33">     * Calcula el resultat de la suma.</a>
+<span class="sourceLineNo">034</span><a id="line.34">     * </a>
+<span class="sourceLineNo">035</span><a id="line.35">     * @param vector Vector amb els operands.</a>
+<span class="sourceLineNo">036</span><a id="line.36">     * @return double</a>
+<span class="sourceLineNo">037</span><a id="line.37">     */</a>
+<span class="sourceLineNo">038</span><a id="line.38">    public double Calcula (double[] vector) {</a>
+<span class="sourceLineNo">039</span><a id="line.39">        if(vector.length == 0) return -1;</a>
+<span class="sourceLineNo">040</span><a id="line.40">        double suma = 0;</a>
+<span class="sourceLineNo">041</span><a id="line.41">        for (int i = 0; i &lt; vector.length; i++) {</a>
+<span class="sourceLineNo">042</span><a id="line.42">            suma += vector[i];</a>
+<span class="sourceLineNo">043</span><a id="line.43">        }</a>
+<span class="sourceLineNo">044</span><a id="line.44">        return suma;</a>
+<span class="sourceLineNo">045</span><a id="line.45">    }</a>
+<span class="sourceLineNo">046</span><a id="line.46"></a>
+<span class="sourceLineNo">047</span><a id="line.47">    /**</a>
+<span class="sourceLineNo">048</span><a id="line.48">     * Calcula les possibilitats del resultat de la suma.</a>
+<span class="sourceLineNo">049</span><a id="line.49">     * </a>
+<span class="sourceLineNo">050</span><a id="line.50">     * @param resultat Resultat de la suma.</a>
+<span class="sourceLineNo">051</span><a id="line.51">     * @param solucions Nombre de solucions possibles.</a>
+<span class="sourceLineNo">052</span><a id="line.52">     * @param cjtCella Conjunt de celles a les que pertany l'operacio.</a>
+<span class="sourceLineNo">053</span><a id="line.53">     * @return Integer</a>
+<span class="sourceLineNo">054</span><a id="line.54">     */</a>
+<span class="sourceLineNo">055</span><a id="line.55">    public Integer calcularPossibilitats(Integer resultat, Integer solucions, ConjuntCella cjtCella){</a>
+<span class="sourceLineNo">056</span><a id="line.56">        Integer suma = 0;</a>
+<span class="sourceLineNo">057</span><a id="line.57">        Integer celesBuides = 0;</a>
+<span class="sourceLineNo">058</span><a id="line.58">        this.solucions = solucions;</a>
+<span class="sourceLineNo">059</span><a id="line.59">        int it = 0;</a>
+<span class="sourceLineNo">060</span><a id="line.60">        HashMap&lt;AbstractMap.SimpleEntry&lt;Integer, Integer&gt;, Integer&gt; valorsIni = new HashMap&lt;AbstractMap.SimpleEntry&lt;Integer, Integer&gt;, Integer&gt;();</a>
+<span class="sourceLineNo">061</span><a id="line.61">        HashMap&lt;Integer, AbstractMap.SimpleEntry&lt;Integer, Integer&gt;&gt; array = new HashMap&lt;Integer, AbstractMap.SimpleEntry&lt;Integer, Integer&gt;&gt;();</a>
+<span class="sourceLineNo">062</span><a id="line.62">        for (AbstractMap.SimpleEntry&lt;Integer, Integer&gt; coord : cjtCella.getCoordenades()) {</a>
+<span class="sourceLineNo">063</span><a id="line.63">            Integer valor = cjtCella.getCella(coord).getSolucio();</a>
+<span class="sourceLineNo">064</span><a id="line.64">            array.put(it, coord);</a>
+<span class="sourceLineNo">065</span><a id="line.65">            if(valor != 0){</a>
+<span class="sourceLineNo">066</span><a id="line.66">                if(cjtCella.comprovarFilaColumnaPossibilitat(coord.getKey(), coord.getValue(), valor)) {</a>
+<span class="sourceLineNo">067</span><a id="line.67">                    valorsIni.put(coord, valor);</a>
+<span class="sourceLineNo">068</span><a id="line.68">                    suma += valor;</a>
+<span class="sourceLineNo">069</span><a id="line.69">                }</a>
+<span class="sourceLineNo">070</span><a id="line.70">                else {</a>
+<span class="sourceLineNo">071</span><a id="line.71">                    return 0;</a>
+<span class="sourceLineNo">072</span><a id="line.72">                }</a>
+<span class="sourceLineNo">073</span><a id="line.73">            } else {</a>
+<span class="sourceLineNo">074</span><a id="line.74">                valorsIni.put(coord, 0);</a>
+<span class="sourceLineNo">075</span><a id="line.75">                celesBuides++;</a>
+<span class="sourceLineNo">076</span><a id="line.76">            }</a>
+<span class="sourceLineNo">077</span><a id="line.77">            ++it;</a>
+<span class="sourceLineNo">078</span><a id="line.78">        }</a>
+<span class="sourceLineNo">079</span><a id="line.79">        Integer restant = resultat - suma;</a>
+<span class="sourceLineNo">080</span><a id="line.80"></a>
+<span class="sourceLineNo">081</span><a id="line.81">        if(restant &lt; 0 || (restant != 0 &amp;&amp; celesBuides == 0) || (restant == 0 &amp;&amp; celesBuides != 0)) return 0;</a>
+<span class="sourceLineNo">082</span><a id="line.82"></a>
+<span class="sourceLineNo">083</span><a id="line.83">            </a>
+<span class="sourceLineNo">084</span><a id="line.84">        Integer possibilitats = calculRecursiu(celesBuides, valorsIni, restant, cjtCella, array, 0);</a>
+<span class="sourceLineNo">085</span><a id="line.85">            </a>
+<span class="sourceLineNo">086</span><a id="line.86">        return possibilitats;</a>
+<span class="sourceLineNo">087</span><a id="line.87">    }</a>
+<span class="sourceLineNo">088</span><a id="line.88">    </a>
+<span class="sourceLineNo">089</span><a id="line.89">     </a>
+<span class="sourceLineNo">090</span><a id="line.90">    /**</a>
+<span class="sourceLineNo">091</span><a id="line.91">     * Calcula les possibilitats del resultat de la suma de forma recursiva.</a>
+<span class="sourceLineNo">092</span><a id="line.92">     * </a>
+<span class="sourceLineNo">093</span><a id="line.93">     * @param celesBuides Nombre de celles buides.</a>
+<span class="sourceLineNo">094</span><a id="line.94">     * @param valorsIni Valors inicials de les celles.</a>
+<span class="sourceLineNo">095</span><a id="line.95">     * @param restant Restant de la suma.</a>
+<span class="sourceLineNo">096</span><a id="line.96">     * @param cjtCella Conjunt de celles a les que pertany l'operacio.</a>
+<span class="sourceLineNo">097</span><a id="line.97">     * @param array Array amb les coordenades de les celles.</a>
+<span class="sourceLineNo">098</span><a id="line.98">     * @param it Iterador de l'array.</a>
+<span class="sourceLineNo">099</span><a id="line.99">     * @return Integer</a>
+<span class="sourceLineNo">100</span><a id="line.100">     */</a>
+<span class="sourceLineNo">101</span><a id="line.101">    private Integer calculRecursiu(Integer celesBuides, HashMap&lt;AbstractMap.SimpleEntry&lt;Integer, Integer&gt;, Integer&gt; valorsIni, Integer restant, ConjuntCella cjtCella, HashMap&lt;Integer, AbstractMap.SimpleEntry&lt;Integer, Integer&gt;&gt; array, Integer it){</a>
+<span class="sourceLineNo">102</span><a id="line.102">        if (celesBuides == 0 &amp;&amp; restant == 0) {</a>
+<span class="sourceLineNo">103</span><a id="line.103">            solucions = solucions + 1;</a>
+<span class="sourceLineNo">104</span><a id="line.104">            for(AbstractMap.SimpleEntry&lt;Integer, Integer&gt; coord : valorsIni.keySet()){</a>
+<span class="sourceLineNo">105</span><a id="line.105">                cjtCella.afegirPossibilitatTrue(coord, valorsIni.get(coord), solucions);</a>
+<span class="sourceLineNo">106</span><a id="line.106">            }</a>
+<span class="sourceLineNo">107</span><a id="line.107">            return 1;</a>
+<span class="sourceLineNo">108</span><a id="line.108">        } else if (celesBuides &gt; 0 &amp;&amp; restant == 0 || celesBuides == 0 &amp;&amp; restant != 0 || restant &lt; 0) {</a>
+<span class="sourceLineNo">109</span><a id="line.109">            return 0;</a>
+<span class="sourceLineNo">110</span><a id="line.110">        } else {</a>
+<span class="sourceLineNo">111</span><a id="line.111">            Integer possibilitats = 0;</a>
+<span class="sourceLineNo">112</span><a id="line.112">            if(valorsIni.get(array.get(it)) != 0) {</a>
+<span class="sourceLineNo">113</span><a id="line.113">                possibilitats += calculRecursiu(celesBuides, valorsIni, restant, cjtCella, array, it + 1);</a>
+<span class="sourceLineNo">114</span><a id="line.114">            } else{</a>
+<span class="sourceLineNo">115</span><a id="line.115">                for(int i = 1; i &lt;= cjtCella.getTamany(); i++){</a>
+<span class="sourceLineNo">116</span><a id="line.116">                    if(restant - i &gt;= 0 &amp;&amp; cjtCella.setSolucio(array.get(it), i)){</a>
+<span class="sourceLineNo">117</span><a id="line.117">                        valorsIni.put(array.get(it), i);</a>
+<span class="sourceLineNo">118</span><a id="line.118">                        if(cjtCella.comprovarFilaColumnaPossibilitat(array.get(it).getKey(), array.get(it).getValue(), i)) {</a>
+<span class="sourceLineNo">119</span><a id="line.119">                            possibilitats += calculRecursiu(celesBuides - 1, valorsIni, restant - i, cjtCella, array, it + 1);</a>
+<span class="sourceLineNo">120</span><a id="line.120">                        }</a>
+<span class="sourceLineNo">121</span><a id="line.121">                        if(cjtCella.deleteSolucio(array.get(it))){</a>
+<span class="sourceLineNo">122</span><a id="line.122">                            valorsIni.put(array.get(it), 0);</a>
+<span class="sourceLineNo">123</span><a id="line.123">                        }</a>
+<span class="sourceLineNo">124</span><a id="line.124">                    }</a>
+<span class="sourceLineNo">125</span><a id="line.125">                }</a>
+<span class="sourceLineNo">126</span><a id="line.126">            }</a>
+<span class="sourceLineNo">127</span><a id="line.127">            return possibilitats;</a>
+<span class="sourceLineNo">128</span><a id="line.128">        }</a>
+<span class="sourceLineNo">129</span><a id="line.129">    }</a>
+<span class="sourceLineNo">130</span><a id="line.130">}</a>
+<span class="sourceLineNo">131</span><a id="line.131"></a>
+<span class="sourceLineNo">132</span><a id="line.132"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</main>
+</body>
+</html>

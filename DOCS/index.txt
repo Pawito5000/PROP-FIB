@@ -1,0 +1,9 @@
+Descripcio del directori:
+    Directori que conte la documentacio del projecte.
+
+Elements del directori:
+    - La carpeta recursos es on s'emmagatzemen les modificacions de persistencia
+    - La carpeta jocsdeproba es on s'emmagatzema una copia segura dels recursos
+    - La carpeta CLASS es on s'emmagatzemen els fitxers .class generats pel makefile
+    - La carpeta JARS es on s'emmagatzemen els fitxers .jar generats pel makefile
+    

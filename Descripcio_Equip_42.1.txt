@@ -1,0 +1,11 @@
+Membres del Equip:
+    - Bellavista Martinez, Julia
+    - Blas Zaragoza, Elsa
+    - Cervantes Cabas, Marti
+    - Navarro Alvarez, Pau   
+
+Adreces e-mail del Equip:
+    - julia.bellavista@estudiantat.ucp.edu
+    - elsa.blas@estudiantat.ucp.edu
+    - marti.cervantes@estudiantat.ucp.edu
+    - pau.navarro.alvarez@estudiantat.ucp.edu

@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+</head>
+<body>
+<main role="main">
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span><a id="line.1">package classes.domini;</a>
+<span class="sourceLineNo">002</span><a id="line.2"></a>
+<span class="sourceLineNo">003</span><a id="line.3">import java.util.HashMap;</a>
+<span class="sourceLineNo">004</span><a id="line.4">import java.util.AbstractMap;</a>
+<span class="sourceLineNo">005</span><a id="line.5"></a>
+<span class="sourceLineNo">006</span><a id="line.6">/**</a>
+<span class="sourceLineNo">007</span><a id="line.7"> * Representa una operacio de minim.</a>
+<span class="sourceLineNo">008</span><a id="line.8"> *</a>
+<span class="sourceLineNo">009</span><a id="line.9"> * El minim te un resultat i un nombre de solucions possibles.</a>
+<span class="sourceLineNo">010</span><a id="line.10"> * Tambe proporciona metodes per calcular el resultat del minim i les possibilitats del resultat.</a>
+<span class="sourceLineNo">011</span><a id="line.11"> */</a>
+<span class="sourceLineNo">012</span><a id="line.12">public class Minim extends Operacio {</a>
+<span class="sourceLineNo">013</span><a id="line.13">    private static Minim instance;</a>
+<span class="sourceLineNo">014</span><a id="line.14">    private Integer solucions;</a>
+<span class="sourceLineNo">015</span><a id="line.15"></a>
+<span class="sourceLineNo">016</span><a id="line.16">    /**</a>
+<span class="sourceLineNo">017</span><a id="line.17">     * Constructor de la classe Minim.</a>
+<span class="sourceLineNo">018</span><a id="line.18">     */</a>
+<span class="sourceLineNo">019</span><a id="line.19">    private Minim () {</a>
+<span class="sourceLineNo">020</span><a id="line.20">    } </a>
+<span class="sourceLineNo">021</span><a id="line.21"></a>
+<span class="sourceLineNo">022</span><a id="line.22">    /**</a>
+<span class="sourceLineNo">023</span><a id="line.23">     * Retorna la instancia del minim.</a>
+<span class="sourceLineNo">024</span><a id="line.24">     * </a>
+<span class="sourceLineNo">025</span><a id="line.25">     * @return Minim</a>
+<span class="sourceLineNo">026</span><a id="line.26">     */</a>
+<span class="sourceLineNo">027</span><a id="line.27">    public static Minim ObtenirInstancia() {</a>
+<span class="sourceLineNo">028</span><a id="line.28">        if (instance == null) {</a>
+<span class="sourceLineNo">029</span><a id="line.29">            instance = new Minim();</a>
+<span class="sourceLineNo">030</span><a id="line.30">        }</a>
+<span class="sourceLineNo">031</span><a id="line.31">        return instance;</a>
+<span class="sourceLineNo">032</span><a id="line.32">    }</a>
+<span class="sourceLineNo">033</span><a id="line.33">    </a>
+<span class="sourceLineNo">034</span><a id="line.34">    /**</a>
+<span class="sourceLineNo">035</span><a id="line.35">     * Calcula el resultat del minim.</a>
+<span class="sourceLineNo">036</span><a id="line.36">     * </a>
+<span class="sourceLineNo">037</span><a id="line.37">     * @param vector Vector amb els operands.</a>
+<span class="sourceLineNo">038</span><a id="line.38">     * @return double</a>
+<span class="sourceLineNo">039</span><a id="line.39">     */</a>
+<span class="sourceLineNo">040</span><a id="line.40">    public double Calcula(double[] vector) {</a>
+<span class="sourceLineNo">041</span><a id="line.41">        if(vector.length == 0) return -1;</a>
+<span class="sourceLineNo">042</span><a id="line.42">        double minim = vector[0];</a>
+<span class="sourceLineNo">043</span><a id="line.43">        for (int i = 1; i &lt; vector.length; i++) {</a>
+<span class="sourceLineNo">044</span><a id="line.44">            if (vector[i] &lt; minim) {</a>
+<span class="sourceLineNo">045</span><a id="line.45">                minim = vector[i];</a>
+<span class="sourceLineNo">046</span><a id="line.46">            }</a>
+<span class="sourceLineNo">047</span><a id="line.47">        }</a>
+<span class="sourceLineNo">048</span><a id="line.48">        return minim;</a>
+<span class="sourceLineNo">049</span><a id="line.49">    }</a>
+<span class="sourceLineNo">050</span><a id="line.50"></a>
+<span class="sourceLineNo">051</span><a id="line.51">    /**</a>
+<span class="sourceLineNo">052</span><a id="line.52">     * Calcula les possibilitats del resultat del minim.</a>
+<span class="sourceLineNo">053</span><a id="line.53">     * </a>
+<span class="sourceLineNo">054</span><a id="line.54">     * @param resultat Resultat del minim.</a>
+<span class="sourceLineNo">055</span><a id="line.55">     * @param solucions Nombre de solucions possibles.</a>
+<span class="sourceLineNo">056</span><a id="line.56">     * @param cjtCella Conjunt de celles a les que pertany l'operacio.</a>
+<span class="sourceLineNo">057</span><a id="line.57">     * @return Integer</a>
+<span class="sourceLineNo">058</span><a id="line.58">     */</a>
+<span class="sourceLineNo">059</span><a id="line.59">    public Integer calcularPossibilitats(Integer resultat, Integer solucions, ConjuntCella cjtCella){</a>
+<span class="sourceLineNo">060</span><a id="line.60">        Integer celesBuides = 0;</a>
+<span class="sourceLineNo">061</span><a id="line.61">        this.solucions = solucions;</a>
+<span class="sourceLineNo">062</span><a id="line.62">        Integer minim = resultat;</a>
+<span class="sourceLineNo">063</span><a id="line.63">        int it = 0;</a>
+<span class="sourceLineNo">064</span><a id="line.64">        HashMap&lt;AbstractMap.SimpleEntry&lt;Integer, Integer&gt;, Integer&gt; valorsIni = new HashMap&lt;AbstractMap.SimpleEntry&lt;Integer, Integer&gt;, Integer&gt;();</a>
+<span class="sourceLineNo">065</span><a id="line.65">        AbstractMap.SimpleEntry&lt;Integer, Integer&gt; coordMinim = null;</a>
+<span class="sourceLineNo">066</span><a id="line.66">        HashMap&lt;Integer, AbstractMap.SimpleEntry&lt;Integer, Integer&gt;&gt; array = new HashMap&lt;Integer, AbstractMap.SimpleEntry&lt;Integer, Integer&gt;&gt;();</a>
+<span class="sourceLineNo">067</span><a id="line.67">        for (AbstractMap.SimpleEntry&lt;Integer, Integer&gt; coord : cjtCella.getCoordenades()) {</a>
+<span class="sourceLineNo">068</span><a id="line.68">            Integer valor = cjtCella.getCella(coord).getSolucio();</a>
+<span class="sourceLineNo">069</span><a id="line.69">            array.put(it, coord);</a>
+<span class="sourceLineNo">070</span><a id="line.70">            if(valor != 0){</a>
+<span class="sourceLineNo">071</span><a id="line.71">                if(cjtCella.comprovarFilaColumnaPossibilitat(coord.getKey(), coord.getValue(), valor)) {</a>
+<span class="sourceLineNo">072</span><a id="line.72">                    valorsIni.put(coord, valor);</a>
+<span class="sourceLineNo">073</span><a id="line.73">                    if(valor == minim) coordMinim = coord;</a>
+<span class="sourceLineNo">074</span><a id="line.74">                }</a>
+<span class="sourceLineNo">075</span><a id="line.75">                else {</a>
+<span class="sourceLineNo">076</span><a id="line.76">                    return 0;</a>
+<span class="sourceLineNo">077</span><a id="line.77">                }</a>
+<span class="sourceLineNo">078</span><a id="line.78">            } else {</a>
+<span class="sourceLineNo">079</span><a id="line.79">                valorsIni.put(coord, 0);</a>
+<span class="sourceLineNo">080</span><a id="line.80">                celesBuides++;</a>
+<span class="sourceLineNo">081</span><a id="line.81">            }</a>
+<span class="sourceLineNo">082</span><a id="line.82">            ++it;</a>
+<span class="sourceLineNo">083</span><a id="line.83">        }</a>
+<span class="sourceLineNo">084</span><a id="line.84">        if(celesBuides == 0 &amp;&amp; coordMinim == null) return 0;</a>
+<span class="sourceLineNo">085</span><a id="line.85">        Integer aux = -1;</a>
+<span class="sourceLineNo">086</span><a id="line.86">        Integer possibilitats = calculRecursiu(celesBuides, valorsIni, minim, coordMinim, cjtCella, array, 0, aux);</a>
+<span class="sourceLineNo">087</span><a id="line.87">        </a>
+<span class="sourceLineNo">088</span><a id="line.88">        return possibilitats;</a>
+<span class="sourceLineNo">089</span><a id="line.89">    }</a>
+<span class="sourceLineNo">090</span><a id="line.90">    </a>
+<span class="sourceLineNo">091</span><a id="line.91">    /**</a>
+<span class="sourceLineNo">092</span><a id="line.92">     * Calcula les possibilitats del resultat del minim de forma recursiva.</a>
+<span class="sourceLineNo">093</span><a id="line.93">     * </a>
+<span class="sourceLineNo">094</span><a id="line.94">     * @param celesBuides Nombre de celles buides.</a>
+<span class="sourceLineNo">095</span><a id="line.95">     * @param valorsIni Valors inicials de les celles.</a>
+<span class="sourceLineNo">096</span><a id="line.96">     * @param minim Resultat del minim.</a>
+<span class="sourceLineNo">097</span><a id="line.97">     * @param coordMinim Coordenades del minim.</a>
+<span class="sourceLineNo">098</span><a id="line.98">     * @param cjtCella Conjunt de celles a les que pertany l'operacio.</a>
+<span class="sourceLineNo">099</span><a id="line.99">     * @param array Array amb les coordenades de les celles.</a>
+<span class="sourceLineNo">100</span><a id="line.100">     * @param it Iterador.</a>
+<span class="sourceLineNo">101</span><a id="line.101">     * @param aux Auxiliar.</a>
+<span class="sourceLineNo">102</span><a id="line.102">     * @return Integer</a>
+<span class="sourceLineNo">103</span><a id="line.103">     */</a>
+<span class="sourceLineNo">104</span><a id="line.104">    private Integer calculRecursiu(Integer celesBuides, HashMap&lt;AbstractMap.SimpleEntry&lt;Integer, Integer&gt;, Integer&gt; valorsIni, Integer minim, AbstractMap.SimpleEntry&lt;Integer, Integer&gt; coordMinim, ConjuntCella cjtCella, HashMap&lt;Integer, AbstractMap.SimpleEntry&lt;Integer, Integer&gt;&gt; array, Integer it, Integer aux){</a>
+<span class="sourceLineNo">105</span><a id="line.105">        if (celesBuides == 0 &amp;&amp; coordMinim != null) {</a>
+<span class="sourceLineNo">106</span><a id="line.106">            solucions = solucions + 1;</a>
+<span class="sourceLineNo">107</span><a id="line.107">            for(AbstractMap.SimpleEntry&lt;Integer, Integer&gt; coord : valorsIni.keySet()){</a>
+<span class="sourceLineNo">108</span><a id="line.108">                cjtCella.afegirPossibilitatTrue(coord, valorsIni.get(coord), solucions);</a>
+<span class="sourceLineNo">109</span><a id="line.109">            }</a>
+<span class="sourceLineNo">110</span><a id="line.110">            //possibilitats.put(solucions, valorsIni.values());</a>
+<span class="sourceLineNo">111</span><a id="line.111">            return 1;</a>
+<span class="sourceLineNo">112</span><a id="line.112">        } else if (celesBuides == 0 &amp;&amp; coordMinim == null) {</a>
+<span class="sourceLineNo">113</span><a id="line.113">            return 0;</a>
+<span class="sourceLineNo">114</span><a id="line.114">        } else {</a>
+<span class="sourceLineNo">115</span><a id="line.115">            Integer possibilitats = 0;</a>
+<span class="sourceLineNo">116</span><a id="line.116">            if(valorsIni.get(array.get(it)) != 0) {</a>
+<span class="sourceLineNo">117</span><a id="line.117">                possibilitats += calculRecursiu(celesBuides, valorsIni, minim, coordMinim, cjtCella, array, it + 1, aux);</a>
+<span class="sourceLineNo">118</span><a id="line.118">            } else{</a>
+<span class="sourceLineNo">119</span><a id="line.119">                for(int i = minim; i &lt;= cjtCella.getTamany(); i++){</a>
+<span class="sourceLineNo">120</span><a id="line.120">                    if(cjtCella.setSolucio(array.get(it), i)){</a>
+<span class="sourceLineNo">121</span><a id="line.121">                        valorsIni.put(array.get(it), i);</a>
+<span class="sourceLineNo">122</span><a id="line.122">                        if(i == minim &amp;&amp; coordMinim == null) {</a>
+<span class="sourceLineNo">123</span><a id="line.123">                            aux = it;</a>
+<span class="sourceLineNo">124</span><a id="line.124">                            coordMinim = array.get(it);</a>
+<span class="sourceLineNo">125</span><a id="line.125">                        }</a>
+<span class="sourceLineNo">126</span><a id="line.126">                        if(cjtCella.comprovarFilaColumnaPossibilitat(array.get(it).getKey(), array.get(it).getValue(), i)) {</a>
+<span class="sourceLineNo">127</span><a id="line.127">                            possibilitats += calculRecursiu(celesBuides - 1, valorsIni, minim, coordMinim, cjtCella, array, it + 1, aux);</a>
+<span class="sourceLineNo">128</span><a id="line.128">                        }</a>
+<span class="sourceLineNo">129</span><a id="line.129">                        if(cjtCella.deleteSolucio(array.get(it))){</a>
+<span class="sourceLineNo">130</span><a id="line.130">                            valorsIni.put(array.get(it), 0);</a>
+<span class="sourceLineNo">131</span><a id="line.131">                            if(i == minim &amp;&amp; aux == it) {</a>
+<span class="sourceLineNo">132</span><a id="line.132">                                coordMinim = null;</a>
+<span class="sourceLineNo">133</span><a id="line.133">                                aux = -1;</a>
+<span class="sourceLineNo">134</span><a id="line.134">                            }</a>
+<span class="sourceLineNo">135</span><a id="line.135">                        }</a>
+<span class="sourceLineNo">136</span><a id="line.136">                    }</a>
+<span class="sourceLineNo">137</span><a id="line.137">                }</a>
+<span class="sourceLineNo">138</span><a id="line.138">            }</a>
+<span class="sourceLineNo">139</span><a id="line.139">            return possibilitats;</a>
+<span class="sourceLineNo">140</span><a id="line.140">        }</a>
+<span class="sourceLineNo">141</span><a id="line.141">    }</a>
+<span class="sourceLineNo">142</span><a id="line.142">}</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</main>
+</body>
+</html>

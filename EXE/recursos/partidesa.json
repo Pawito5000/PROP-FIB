@@ -1,0 +1,182 @@
+[
+  {
+    "estat": "Pausada",
+    "temps": "PT15.714851S",
+    "nPistes": 3,
+    "ncColocades": 0,
+    "mida": 4,
+    "kenken": {
+      "id": 0,
+      "N": 4,
+      "R": 10,
+      "regions": [
+        {
+          "oper": 0,
+          "result": 2,
+          "e": 1,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 5,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 3,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 9,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 3,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 4,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 4,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 0,
+          "result": 3,
+          "e": 1,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 0,
+          "result": 1,
+          "e": 1,
+          "coordenades": [
+            {
+              "x": 2,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 6,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 2,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 1,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 2,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 7,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 3,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 3,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 0,
+          "result": 2,
+          "e": 1,
+          "coordenades": [
+            {
+              "x": 4,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 0,
+          "result": 4,
+          "e": 1,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 0,
+          "result": 1,
+          "e": 1,
+          "coordenades": [
+            {
+              "x": 4,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

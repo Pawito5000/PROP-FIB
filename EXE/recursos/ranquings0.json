@@ -1,0 +1,52 @@
+[
+  {
+    "idkenken": 2,
+    "rankings": [
+      {
+        "tiempo": "00:07:20",
+        "username": "PauN"
+      },
+      {
+        "tiempo": "00:07:33",
+        "username": "User20"
+      }
+    ]
+  },
+  {
+    "idkenken": 1,
+    "rankings": [
+      {
+        "tiempo": "00:00:23",
+        "username": "Ricardo"
+      },
+      {
+        "tiempo": "00:00:25",
+        "username": "JuliaB"
+      },
+      {
+        "tiempo": "00:00:29",
+        "username": "PauN"
+      },
+      {
+        "tiempo": "00:00:30",
+        "username": "Juan"
+      },
+      {
+        "tiempo": "00:02:57",
+        "username": "marcelMB"
+      },
+      {
+        "tiempo": "00:04:50",
+        "username": "admin"
+      },
+      {
+        "tiempo": "00:05:10",
+        "username": "User22"
+      },
+      {
+        "tiempo": "01:20:05",
+        "username": "MartiC"
+      }
+    ]
+  }
+]

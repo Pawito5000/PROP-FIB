@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+</head>
+<body>
+<main role="main">
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span><a id="line.1">package classes.domini;</a>
+<span class="sourceLineNo">002</span><a id="line.2"></a>
+<span class="sourceLineNo">003</span><a id="line.3">import com.google.gson.JsonArray;</a>
+<span class="sourceLineNo">004</span><a id="line.4">import com.google.gson.JsonObject;</a>
+<span class="sourceLineNo">005</span><a id="line.5">import com.google.gson.Gson;</a>
+<span class="sourceLineNo">006</span><a id="line.6">import java.util.AbstractMap;</a>
+<span class="sourceLineNo">007</span><a id="line.7">import java.util.HashMap;</a>
+<span class="sourceLineNo">008</span><a id="line.8">/**</a>
+<span class="sourceLineNo">009</span><a id="line.9"> * Representa un validador de Kenken.</a>
+<span class="sourceLineNo">010</span><a id="line.10"> * </a>
+<span class="sourceLineNo">011</span><a id="line.11"> * El validador de Kenken te un conjunt de validacions.</a>
+<span class="sourceLineNo">012</span><a id="line.12"> * Tambe proporciona metodes per validar les dades del kenken.</a>
+<span class="sourceLineNo">013</span><a id="line.13"> */</a>
+<span class="sourceLineNo">014</span><a id="line.14">public class Validar {</a>
+<span class="sourceLineNo">015</span><a id="line.15">    private static Validar instancia = null;</a>
+<span class="sourceLineNo">016</span><a id="line.16"></a>
+<span class="sourceLineNo">017</span><a id="line.17">    private Integer minMida = 2;</a>
+<span class="sourceLineNo">018</span><a id="line.18">    private Integer maxMida = 12;</a>
+<span class="sourceLineNo">019</span><a id="line.19">    private Integer minCjt = 2;</a>
+<span class="sourceLineNo">020</span><a id="line.20">    private Integer minOp = 0;</a>
+<span class="sourceLineNo">021</span><a id="line.21">    private Integer maxOp = 6;</a>
+<span class="sourceLineNo">022</span><a id="line.22"></a>
+<span class="sourceLineNo">023</span><a id="line.23">    private HashMap&lt;AbstractMap.SimpleEntry&lt;Integer, Integer&gt;, Boolean&gt; matriu1;</a>
+<span class="sourceLineNo">024</span><a id="line.24">    private HashMap&lt;AbstractMap.SimpleEntry&lt;Integer, Integer&gt;, Boolean&gt; matriu2;</a>
+<span class="sourceLineNo">025</span><a id="line.25"></a>
+<span class="sourceLineNo">026</span><a id="line.26"></a>
+<span class="sourceLineNo">027</span><a id="line.27">    /**</a>
+<span class="sourceLineNo">028</span><a id="line.28">     * Constructor de la classe Validar.</a>
+<span class="sourceLineNo">029</span><a id="line.29">     */</a>
+<span class="sourceLineNo">030</span><a id="line.30">    private Validar() {</a>
+<span class="sourceLineNo">031</span><a id="line.31">        </a>
+<span class="sourceLineNo">032</span><a id="line.32">    }</a>
+<span class="sourceLineNo">033</span><a id="line.33"></a>
+<span class="sourceLineNo">034</span><a id="line.34">    /**</a>
+<span class="sourceLineNo">035</span><a id="line.35">     * Retorna la instancia del validador de Kenken.</a>
+<span class="sourceLineNo">036</span><a id="line.36">     * </a>
+<span class="sourceLineNo">037</span><a id="line.37">     * @return Validar</a>
+<span class="sourceLineNo">038</span><a id="line.38">     */</a>
+<span class="sourceLineNo">039</span><a id="line.39">    public static synchronized Validar getInstancia() {</a>
+<span class="sourceLineNo">040</span><a id="line.40">        if (instancia == null)</a>
+<span class="sourceLineNo">041</span><a id="line.41">            instancia = new Validar();</a>
+<span class="sourceLineNo">042</span><a id="line.42">        return instancia;</a>
+<span class="sourceLineNo">043</span><a id="line.43">    }</a>
+<span class="sourceLineNo">044</span><a id="line.44"></a>
+<span class="sourceLineNo">045</span><a id="line.45">    /**</a>
+<span class="sourceLineNo">046</span><a id="line.46">     *Retorna true si el Kenken es valid, false altrament.</a>
+<span class="sourceLineNo">047</span><a id="line.47">     * </a>
+<span class="sourceLineNo">048</span><a id="line.48">     * @param KenkenJSON JSON del Kenken.</a>
+<span class="sourceLineNo">049</span><a id="line.49">     * @return boolean</a>
+<span class="sourceLineNo">050</span><a id="line.50">     */</a>
+<span class="sourceLineNo">051</span><a id="line.51">    public boolean validarKenken(String KenkenJSON){</a>
+<span class="sourceLineNo">052</span><a id="line.52">        //assumeixo que rebo un string tipo aquest: String jsonString = "{\"N\":4,\"R\":3,\"regions\":[{\"oper\":1,\"result\":10,\"e\":3,\"coordenades\":[{\"x\":1,\"y\":1},{\"x\":1,\"y\":2,\"cont\":3},{\"x\":2,\"y\":1},{\"x\":2,\"y\":2}]},{\"oper\":2,\"result\":2,\"e\":2,\"coordenades\":[{\"x\":3,\"y\":1},{\"x\":3,\"y\":2}]},{\"oper\":4,\"result\":2,\"e\":2,\"coordenades\":[{\"x\":4,\"y\":3},{\"x\":4,\"y\":4}]}]}";</a>
+<span class="sourceLineNo">053</span><a id="line.53">        //Gson gson = new Gson();</a>
+<span class="sourceLineNo">054</span><a id="line.54">        //convertir la cadena json a objecte json</a>
+<span class="sourceLineNo">055</span><a id="line.55">        //JsonObject kenkenObject = gson.fromJson(KenkenJSON, JsonObject.class);</a>
+<span class="sourceLineNo">056</span><a id="line.56"></a>
+<span class="sourceLineNo">057</span><a id="line.57">        JsonObject kenkenObject = new Gson().fromJson(KenkenJSON, JsonObject.class);</a>
+<span class="sourceLineNo">058</span><a id="line.58">        matriu1 = new HashMap&lt;AbstractMap.SimpleEntry&lt;Integer, Integer&gt;, Boolean&gt;();</a>
+<span class="sourceLineNo">059</span><a id="line.59">        </a>
+<span class="sourceLineNo">060</span><a id="line.60">        //Primer valor es la mida. aquesta s'ha de trobar entre 2-9</a>
+<span class="sourceLineNo">061</span><a id="line.61">        Integer mida = kenkenObject.get("N").getAsInt();</a>
+<span class="sourceLineNo">062</span><a id="line.62">        if(mida == null || mida &lt; minMida || mida &gt; maxMida) throw new IllegalArgumentException("Error: la mida del Kenken ha de ser entre 2 i 13");</a>
+<span class="sourceLineNo">063</span><a id="line.63"></a>
+<span class="sourceLineNo">064</span><a id="line.64">        //Segon valor es el numero total de conjunts de cella, minim 1 maxim mida*mida</a>
+<span class="sourceLineNo">065</span><a id="line.65">        Integer numCjtCela = kenkenObject.get("R").getAsInt();</a>
+<span class="sourceLineNo">066</span><a id="line.66">        Integer totalCeles = mida * mida;</a>
+<span class="sourceLineNo">067</span><a id="line.67">        if(numCjtCela == null || numCjtCela &lt; minCjt || numCjtCela &gt; totalCeles) throw new IllegalArgumentException("Error: el nombre de conjunts de cella ha de ser entre 2 i " + totalCeles);</a>
+<span class="sourceLineNo">068</span><a id="line.68"></a>
+<span class="sourceLineNo">069</span><a id="line.69">        //aqui falta crear la "matriu" buida per anar omplint despres amb quines celes ja hem fet servir</a>
+<span class="sourceLineNo">070</span><a id="line.70">        matriu1 = new HashMap&lt;AbstractMap.SimpleEntry&lt;Integer, Integer&gt;, Boolean&gt;();</a>
+<span class="sourceLineNo">071</span><a id="line.71"></a>
+<span class="sourceLineNo">072</span><a id="line.72">        //ara agafem el Json de les regions per iterar sobre ell</a>
+<span class="sourceLineNo">073</span><a id="line.73">        JsonArray conjuntsCelesArray = kenkenObject.getAsJsonArray("regions");</a>
+<span class="sourceLineNo">074</span><a id="line.74">        if (conjuntsCelesArray.size() != numCjtCela)</a>
+<span class="sourceLineNo">075</span><a id="line.75">            throw new IllegalArgumentException("Error: el nombre de conjunts de cella no coincideix amb el nombre de regions" + conjuntsCelesArray.size() + " " + numCjtCela);</a>
+<span class="sourceLineNo">076</span><a id="line.76"></a>
+<span class="sourceLineNo">077</span><a id="line.77">        //comprovem que realment ens hagin passat la informacio de totes les regions</a>
+<span class="sourceLineNo">078</span><a id="line.78">        //if (conjuntsCelesArray.size() != numCjtCela) return false;  </a>
+<span class="sourceLineNo">079</span><a id="line.79">        for(int i = 0; i &lt; conjuntsCelesArray.size(); i++){</a>
+<span class="sourceLineNo">080</span><a id="line.80">            JsonObject conjuntCelaObj = conjuntsCelesArray.get(i).getAsJsonObject();</a>
+<span class="sourceLineNo">081</span><a id="line.81"></a>
+<span class="sourceLineNo">082</span><a id="line.82">            //Vale la estructura de dades de operacio no es correcta del tot pero de moment per comprovar nos sirve xd</a>
+<span class="sourceLineNo">083</span><a id="line.83">            //comprovar que estigui entre 0 i 6 </a>
+<span class="sourceLineNo">084</span><a id="line.84">            Integer operacio = conjuntCelaObj.get("oper").getAsInt();</a>
+<span class="sourceLineNo">085</span><a id="line.85">            if (operacio &lt; minOp || operacio &gt; maxOp)</a>
+<span class="sourceLineNo">086</span><a id="line.86">                throw new IllegalArgumentException("Error: l'operacio ha de ser entre 0 i 6");</a>
+<span class="sourceLineNo">087</span><a id="line.87"></a>
+<span class="sourceLineNo">088</span><a id="line.88">            //Agafem el resultat i apart de comprovar que no sigui null no se si falta algo mes xd</a>
+<span class="sourceLineNo">089</span><a id="line.89">            //Integer result = null;</a>
+<span class="sourceLineNo">090</span><a id="line.90">            //Integer result = conjuntCelaObj.get("result").getAsInt();</a>
+<span class="sourceLineNo">091</span><a id="line.91">            if (conjuntCelaObj.get("result").isJsonNull()) </a>
+<span class="sourceLineNo">092</span><a id="line.92">                throw new IllegalArgumentException("Error: el resultat no pot ser null");</a>
+<span class="sourceLineNo">093</span><a id="line.93"></a>
+<span class="sourceLineNo">094</span><a id="line.94">            Integer elements = conjuntCelaObj.get("e").getAsInt();</a>
+<span class="sourceLineNo">095</span><a id="line.95">            //si ja he omplert totes les celes i tinc encara mes conjunts... malament</a>
+<span class="sourceLineNo">096</span><a id="line.96">           </a>
+<span class="sourceLineNo">097</span><a id="line.97">            if(conjuntCelaObj.get("e").isJsonNull() || totalCeles - elements &lt; 0) </a>
+<span class="sourceLineNo">098</span><a id="line.98">                throw new IllegalArgumentException("Error: el nombre d'elements del conjunt de cella ha de ser entre 1 i " + totalCeles);</a>
+<span class="sourceLineNo">099</span><a id="line.99">            // la divisio i resta nomes de 2 element. la nada nomes 1 elment. suma i multi no tenen limit</a>
+<span class="sourceLineNo">100</span><a id="line.100">            switch (operacio) {</a>
+<span class="sourceLineNo">101</span><a id="line.101">                case 0:</a>
+<span class="sourceLineNo">102</span><a id="line.102">                    if (elements != 1)</a>
+<span class="sourceLineNo">103</span><a id="line.103">                        throw new IllegalArgumentException("Error: l'operacio de divisio ha de tenir 1 element");</a>
+<span class="sourceLineNo">104</span><a id="line.104">                    break;</a>
+<span class="sourceLineNo">105</span><a id="line.105">                case 2:</a>
+<span class="sourceLineNo">106</span><a id="line.106">                    if (elements != 2) </a>
+<span class="sourceLineNo">107</span><a id="line.107">                        throw new IllegalArgumentException("Error: l'operacio de divisio ha de tenir 2 element");</a>
+<span class="sourceLineNo">108</span><a id="line.108">                    break;</a>
+<span class="sourceLineNo">109</span><a id="line.109">                case 4:</a>
+<span class="sourceLineNo">110</span><a id="line.110">                    if (elements != 2)</a>
+<span class="sourceLineNo">111</span><a id="line.111">                        throw new IllegalArgumentException("Error: l'operacio de divisio ha de tenir 2 element");</a>
+<span class="sourceLineNo">112</span><a id="line.112">                    break;</a>
+<span class="sourceLineNo">113</span><a id="line.113">                default:</a>
+<span class="sourceLineNo">114</span><a id="line.114">                    if (elements &lt; 1 || elements &gt; totalCeles)</a>
+<span class="sourceLineNo">115</span><a id="line.115">                        throw new IllegalArgumentException("Error: l'operacio ha de tenir entre 1 i " + totalCeles + " elements");</a>
+<span class="sourceLineNo">116</span><a id="line.116">            }</a>
+<span class="sourceLineNo">117</span><a id="line.117">            totalCeles = totalCeles - elements;</a>
+<span class="sourceLineNo">118</span><a id="line.118"></a>
+<span class="sourceLineNo">119</span><a id="line.119">            //aqui crear una altre "matriu"(num 2) buida de les mateixes dimensions que utilitzarem per saber si les celes es "toquen" o no</a>
+<span class="sourceLineNo">120</span><a id="line.120">            matriu2 = new HashMap&lt;AbstractMap.SimpleEntry&lt;Integer, Integer&gt;, Boolean&gt;();</a>
+<span class="sourceLineNo">121</span><a id="line.121">            //vale ara agafem el json de les coordenades</a>
+<span class="sourceLineNo">122</span><a id="line.122">            JsonArray celesArray = conjuntCelaObj.getAsJsonArray("coordenades");</a>
+<span class="sourceLineNo">123</span><a id="line.123">            //comprobem que rebem la info de tots els elements o sigui totes les celes que participen en el cjt de celes</a>
+<span class="sourceLineNo">124</span><a id="line.124">            if(celesArray.size() != elements) </a>
+<span class="sourceLineNo">125</span><a id="line.125">                throw new IllegalArgumentException("Error: el nombre d'elements del conjunt de cella no coincideix amb el nombre de celes" + elements + " " + celesArray.size());</a>
+<span class="sourceLineNo">126</span><a id="line.126">            for (Integer j = 0; j &lt; celesArray.size(); j++) {</a>
+<span class="sourceLineNo">127</span><a id="line.127">                //agafem cada parella de coordenades</a>
+<span class="sourceLineNo">128</span><a id="line.128">                JsonObject celaObject = celesArray.get(j).getAsJsonObject();</a>
+<span class="sourceLineNo">129</span><a id="line.129"></a>
+<span class="sourceLineNo">130</span><a id="line.130">                Integer x = celaObject.get("x").getAsInt();</a>
+<span class="sourceLineNo">131</span><a id="line.131">                Integer y = celaObject.get("y").getAsInt();</a>
+<span class="sourceLineNo">132</span><a id="line.132"></a>
+<span class="sourceLineNo">133</span><a id="line.133">                //si sortim de la "matriu" error</a>
+<span class="sourceLineNo">134</span><a id="line.134">                if (x == null || y == null || x &lt;= 0 || x &gt; mida || y &lt;= 0 || y &gt; mida) </a>
+<span class="sourceLineNo">135</span><a id="line.135">                    throw new IllegalArgumentException("Error: la cela " + x + " " + y + " esta fora de la matriu");</a>
+<span class="sourceLineNo">136</span><a id="line.136">                //que no haguem ja utilitzat aquesta cela en un altre conjunt</a>
+<span class="sourceLineNo">137</span><a id="line.137">                AbstractMap.SimpleEntry&lt;Integer, Integer&gt; coord = new AbstractMap.SimpleEntry&lt;Integer, Integer&gt;(x, y);</a>
+<span class="sourceLineNo">138</span><a id="line.138">                if (matriu1.get(coord) != null) </a>
+<span class="sourceLineNo">139</span><a id="line.139">                    throw new IllegalArgumentException("Error: la cela " + coord + " ja ha estat utilitzada en un altre conjunt");</a>
+<span class="sourceLineNo">140</span><a id="line.140">                else {</a>
+<span class="sourceLineNo">141</span><a id="line.141">                    matriu1.put(coord, true);</a>
+<span class="sourceLineNo">142</span><a id="line.142">                    matriu2.put(coord, true);</a>
+<span class="sourceLineNo">143</span><a id="line.143">                }</a>
+<span class="sourceLineNo">144</span><a id="line.144"></a>
+<span class="sourceLineNo">145</span><a id="line.145">                if (celaObject.get("ini") != null &amp;&amp; celaObject.get("ini").getAsInt() == 1 &amp;&amp; celaObject.get("cont").isJsonNull())</a>
+<span class="sourceLineNo">146</span><a id="line.146">                    throw new IllegalArgumentException("Error: la cela " + coord + " no pot ser inicial i no tenir valor");</a>
+<span class="sourceLineNo">147</span><a id="line.147">            }</a>
+<span class="sourceLineNo">148</span><a id="line.148">        }</a>
+<span class="sourceLineNo">149</span><a id="line.149"></a>
+<span class="sourceLineNo">150</span><a id="line.150">        return true;</a>
+<span class="sourceLineNo">151</span><a id="line.151">    }</a>
+<span class="sourceLineNo">152</span><a id="line.152">}</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</main>
+</body>
+</html>

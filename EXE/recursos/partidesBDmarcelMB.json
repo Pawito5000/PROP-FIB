@@ -1,0 +1,105 @@
+[
+  {
+    "estat": "Pausada",
+    "temps": "PT22S",
+    "nPistes": 3,
+    "ncColocades": 5,
+    "mida": 3,
+    "kenken": {
+      "id": 21,
+      "N": 3,
+      "R": 5,
+      "regions": [
+        {
+          "oper": 0,
+          "result": 3,
+          "e": 1,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 1,
+              "cont": 3,
+              "ini": 1
+            }
+          ]
+        },
+        {
+          "oper": 0,
+          "result": 3,
+          "e": 1,
+          "coordenades": [
+            {
+              "x": 2,
+              "y": 2,
+              "cont": 3,
+              "ini": 1
+            }
+          ]
+        },
+        {
+          "oper": 0,
+          "result": 3,
+          "e": 1,
+          "coordenades": [
+            {
+              "x": 3,
+              "y": 3,
+              "cont": 3,
+              "ini": 1
+            }
+          ]
+        },
+        {
+          "oper": 3,
+          "result": 2,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 2,
+              "y": 1,
+              "cont": 1,
+              "ini": 0
+            },
+            {
+              "x": 3,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 3,
+              "y": 2,
+              "cont": 2,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 3,
+          "result": 2,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 1,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 2,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

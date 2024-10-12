@@ -1,0 +1,733 @@
+[
+  {
+    "estat": "Pausada",
+    "temps": "PT4S",
+    "nPistes": 3,
+    "ncColocades": 18,
+    "mida": 9,
+    "kenken": {
+      "id": 2,
+      "N": 9,
+      "R": 33,
+      "regions": [
+        {
+          "oper": 2,
+          "result": 7,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 3,
+          "result": 144,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 1,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 1,
+              "y": 5,
+              "cont": 3,
+              "ini": 1
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 21,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 6,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 2,
+              "y": 6,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 2,
+              "y": 5,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 10,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 7,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 2,
+              "y": 7,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 19,
+          "e": 4,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 8,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 2,
+              "y": 8,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 2,
+              "y": 9,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 3,
+              "y": 8,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 0,
+          "result": 1,
+          "e": 1,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 9,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 3,
+          "result": 84,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 2,
+              "y": 1,
+              "cont": 4,
+              "ini": 1
+            },
+            {
+              "x": 3,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 4,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 3,
+          "result": 48,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 2,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 2,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 2,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 4,
+          "result": 2,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 3,
+              "y": 2,
+              "cont": 4,
+              "ini": 1
+            },
+            {
+              "x": 3,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 2,
+          "result": 8,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 3,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 4,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 4,
+          "result": 3,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 3,
+              "y": 5,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 4,
+              "y": 5,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 3,
+          "result": 280,
+          "e": 4,
+          "coordenades": [
+            {
+              "x": 3,
+              "y": 6,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 3,
+              "y": 7,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 4,
+              "y": 7,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 4,
+              "y": 8,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 4,
+          "result": 3,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 3,
+              "y": 9,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 4,
+              "y": 9,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 2,
+          "result": 4,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 4,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 4,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 15,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 4,
+              "y": 6,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 5,
+              "y": 6,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 5,
+              "y": 7,
+              "cont": 5,
+              "ini": 1
+            }
+          ]
+        },
+        {
+          "oper": 4,
+          "result": 3,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 5,
+              "y": 1,
+              "cont": 6,
+              "ini": 1
+            },
+            {
+              "x": 6,
+              "y": 1,
+              "cont": 2,
+              "ini": 1
+            }
+          ]
+        },
+        {
+          "oper": 3,
+          "result": 140,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 5,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 6,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 6,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 4,
+          "result": 3,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 5,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 5,
+              "y": 4,
+              "cont": 3,
+              "ini": 1
+            }
+          ]
+        },
+        {
+          "oper": 2,
+          "result": 8,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 5,
+              "y": 5,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 6,
+              "y": 5,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 26,
+          "e": 4,
+          "coordenades": [
+            {
+              "x": 5,
+              "y": 8,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 5,
+              "y": 9,
+              "cont": 4,
+              "ini": 1
+            },
+            {
+              "x": 6,
+              "y": 9,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 7,
+              "y": 9,
+              "cont": 6,
+              "ini": 1
+            }
+          ]
+        },
+        {
+          "oper": 3,
+          "result": 30,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 6,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 7,
+              "y": 4,
+              "cont": 5,
+              "ini": 1
+            }
+          ]
+        },
+        {
+          "oper": 4,
+          "result": 4,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 6,
+              "y": 6,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 7,
+              "y": 6,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 2,
+          "result": 4,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 6,
+              "y": 7,
+              "cont": 3,
+              "ini": 1
+            },
+            {
+              "x": 6,
+              "y": 8,
+              "cont": 7,
+              "ini": 1
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 20,
+          "e": 4,
+          "coordenades": [
+            {
+              "x": 7,
+              "y": 1,
+              "cont": 1,
+              "ini": 1
+            },
+            {
+              "x": 8,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 8,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 9,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 2,
+          "result": 4,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 7,
+              "y": 2,
+              "cont": 3,
+              "ini": 1
+            },
+            {
+              "x": 7,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 0,
+          "result": 8,
+          "e": 1,
+          "coordenades": [
+            {
+              "x": 7,
+              "y": 5,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 20,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 7,
+              "y": 7,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 7,
+              "y": 8,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 8,
+              "y": 8,
+              "cont": 9,
+              "ini": 1
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 13,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 8,
+              "y": 3,
+              "cont": 2,
+              "ini": 1
+            },
+            {
+              "x": 8,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 9,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 2,
+          "result": 1,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 8,
+              "y": 5,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 8,
+              "y": 6,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 12,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 8,
+              "y": 7,
+              "cont": 1,
+              "ini": 1
+            },
+            {
+              "x": 9,
+              "y": 7,
+              "cont": 8,
+              "ini": 1
+            },
+            {
+              "x": 9,
+              "y": 8,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 3,
+          "result": 10,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 8,
+              "y": 9,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 9,
+              "y": 9,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 2,
+          "result": 8,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 9,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 9,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 2,
+          "result": 1,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 9,
+              "y": 5,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 9,
+              "y": 6,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

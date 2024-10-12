@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nom": "User01",
+    "contrasenya": "password123",
+    "contador": 0
+  },
+  {
+    "id": 2,
+    "nom": "User21",
+    "contrasenya": "securePass456",
+    "contador": 0
+  },
+  {
+    "id": 3,
+    "nom": "User22",
+    "contrasenya": "myPassword789",
+    "contador": 1
+  }
+]

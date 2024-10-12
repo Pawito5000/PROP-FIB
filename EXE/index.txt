@@ -1,0 +1,9 @@
+Descripcio del directori:
+    Directori que conte els recursos i executables del projecte.
+
+Elements del directori:
+    - Manual d'usuari
+    - Reparticio de feina
+    - Carpeta Javadoc amb tota la informacio de classes, packages, relacions, etc.
+
+    

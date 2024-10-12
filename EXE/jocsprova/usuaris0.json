@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nom": "PauN",
+        "contrasenya": "aaa",
+        "contador": 0
+
+    }, {
+        "id": 2,
+        "nom": "JuliaB",
+        "contrasenya": "marcel",
+        "contador": 0
+    },
+    {
+        "id": 2,
+        "nom": "a",
+        "contrasenya": "a",
+        "contador": 0
+    }
+]

@@ -1,0 +1,16 @@
+Descripcio del directori:
+    Directori que conte el codi font del projecte.
+
+Elements del directori:
+    - src.classes: directori on s'emmagatzemen les classes del projecte
+    - src.controladors: directori on s'emmagatzemen les controladors del projecte
+    - src.driver: directori on s'emmagatzema el driver executable del projecte
+    - src.images: directori on s'emmagatzemen les imatges que utilitza el projecte
+    - src.lib:  directori on s'emmagatzemen les llibreries que utilitza el projecte
+
+Instruccions per la compilacio:
+    - Nomes compila en sistemes UNIX
+    - $ make all o $ make run : executa l'applicació  
+    - $ make jars : obtenim l'executable
+    - $ make class : obtenim els fitxers .class de les classes del proyecte
+    - $ make javadoc : crea el directori javadoc i els tots seus components

@@ -1,0 +1,161 @@
+[
+  {
+    "estat": "Pausada",
+    "temps": "PT7S",
+    "nPistes": 2,
+    "ncColocades": 4,
+    "mida": 4,
+    "kenken": {
+      "id": 4,
+      "N": 4,
+      "R": 7,
+      "regions": [
+        {
+          "oper": 3,
+          "result": 24,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 1,
+              "cont": 2,
+              "ini": 1
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 3,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 1,
+          "result": 6,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 2,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 2,
+              "y": 3,
+              "cont": 1,
+              "ini": 1
+            }
+          ]
+        },
+        {
+          "oper": 2,
+          "result": 1,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 1,
+              "y": 3,
+              "cont": 4,
+              "ini": 1
+            },
+            {
+              "x": 1,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 4,
+          "result": 2,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 2,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 3,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 3,
+          "result": 18,
+          "e": 3,
+          "coordenades": [
+            {
+              "x": 3,
+              "y": 2,
+              "cont": 3,
+              "ini": 1
+            },
+            {
+              "x": 3,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 4,
+              "y": 3,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 2,
+          "result": 1,
+          "e": 2,
+          "coordenades": [
+            {
+              "x": 4,
+              "y": 1,
+              "cont": 0,
+              "ini": 0
+            },
+            {
+              "x": 4,
+              "y": 2,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        },
+        {
+          "oper": 0,
+          "result": 4,
+          "e": 1,
+          "coordenades": [
+            {
+              "x": 4,
+              "y": 4,
+              "cont": 0,
+              "ini": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

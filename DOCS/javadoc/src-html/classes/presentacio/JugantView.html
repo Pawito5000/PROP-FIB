@@ -1,0 +1,418 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+</head>
+<body>
+<main role="main">
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span><a id="line.1">/*</a>
+<span class="sourceLineNo">002</span><a id="line.2"> * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license</a>
+<span class="sourceLineNo">003</span><a id="line.3"> * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template</a>
+<span class="sourceLineNo">004</span><a id="line.4"> */</a>
+<span class="sourceLineNo">005</span><a id="line.5">package classes.presentacio;</a>
+<span class="sourceLineNo">006</span><a id="line.6"></a>
+<span class="sourceLineNo">007</span><a id="line.7">import java.awt.Image;</a>
+<span class="sourceLineNo">008</span><a id="line.8">import javax.swing.ImageIcon;</a>
+<span class="sourceLineNo">009</span><a id="line.9">import javax.swing.JPanel;</a>
+<span class="sourceLineNo">010</span><a id="line.10">import java.awt.event.ActionEvent;</a>
+<span class="sourceLineNo">011</span><a id="line.11">import java.awt.event.ActionListener;</a>
+<span class="sourceLineNo">012</span><a id="line.12">import javax.swing.Timer;</a>
+<span class="sourceLineNo">013</span><a id="line.13">import java.time.Duration;</a>
+<span class="sourceLineNo">014</span><a id="line.14">import javax.swing.JOptionPane;</a>
+<span class="sourceLineNo">015</span><a id="line.15">/**</a>
+<span class="sourceLineNo">016</span><a id="line.16"> * Panell per a la vista del joc en curs.</a>
+<span class="sourceLineNo">017</span><a id="line.17"> * Aquest panell proporciona una interficie d'usuari per al joc en curs en l'aplicacio.</a>
+<span class="sourceLineNo">018</span><a id="line.18"> * es utilitzat per mostrar el taulell de joc i interactuar amb les funcionalitats com borrar i obtenir pistes.</a>
+<span class="sourceLineNo">019</span><a id="line.19"> * @author marti</a>
+<span class="sourceLineNo">020</span><a id="line.20"> */</a>
+<span class="sourceLineNo">021</span><a id="line.21">public class JugantView extends javax.swing.JPanel {</a>
+<span class="sourceLineNo">022</span><a id="line.22">    private final PrincipalView vistaPrincipal; </a>
+<span class="sourceLineNo">023</span><a id="line.23">    private Timer timer;</a>
+<span class="sourceLineNo">024</span><a id="line.24">    private Duration seconds;</a>
+<span class="sourceLineNo">025</span><a id="line.25">    private Boolean running;</a>
+<span class="sourceLineNo">026</span><a id="line.26">    /**</a>
+<span class="sourceLineNo">027</span><a id="line.27">     * Obte el panell del taulell de joc.</a>
+<span class="sourceLineNo">028</span><a id="line.28">     * Aquest metode retorna el panell del taulell de joc, on es mostren les celles del joc.</a>
+<span class="sourceLineNo">029</span><a id="line.29">     * @param vistaPrincipal La vista principal de l'aplicacio.</a>
+<span class="sourceLineNo">030</span><a id="line.30">     */</a>
+<span class="sourceLineNo">031</span><a id="line.31">    public JugantView(PrincipalView vistaPrincipal) {</a>
+<span class="sourceLineNo">032</span><a id="line.32">        this.vistaPrincipal = vistaPrincipal;</a>
+<span class="sourceLineNo">033</span><a id="line.33">        initComponents();</a>
+<span class="sourceLineNo">034</span><a id="line.34">        running= false;</a>
+<span class="sourceLineNo">035</span><a id="line.35">        seconds = Duration.ofSeconds(0);</a>
+<span class="sourceLineNo">036</span><a id="line.36">        timer = new Timer(1000, new ActionListener(){</a>
+<span class="sourceLineNo">037</span><a id="line.37">            @Override</a>
+<span class="sourceLineNo">038</span><a id="line.38">            public void actionPerformed(ActionEvent e){</a>
+<span class="sourceLineNo">039</span><a id="line.39">                if(running){</a>
+<span class="sourceLineNo">040</span><a id="line.40">                    seconds = seconds.plusSeconds(1);</a>
+<span class="sourceLineNo">041</span><a id="line.41">                    long totalSeconds = seconds.getSeconds();</a>
+<span class="sourceLineNo">042</span><a id="line.42">                    long hours = totalSeconds / 3600;</a>
+<span class="sourceLineNo">043</span><a id="line.43">                    long minutes = (totalSeconds % 3600) / 60;</a>
+<span class="sourceLineNo">044</span><a id="line.44">                    long secs = totalSeconds % 60;</a>
+<span class="sourceLineNo">045</span><a id="line.45">                    tCrono1.setText(String.format("%02d:%02d:%02d", hours, minutes, secs));</a>
+<span class="sourceLineNo">046</span><a id="line.46">                }</a>
+<span class="sourceLineNo">047</span><a id="line.47">            }</a>
+<span class="sourceLineNo">048</span><a id="line.48">        });</a>
+<span class="sourceLineNo">049</span><a id="line.49">        timer.start();</a>
+<span class="sourceLineNo">050</span><a id="line.50">        </a>
+<span class="sourceLineNo">051</span><a id="line.51">        running = true;</a>
+<span class="sourceLineNo">052</span><a id="line.52">        </a>
+<span class="sourceLineNo">053</span><a id="line.53">        ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("/images/flecha.png"));</a>
+<span class="sourceLineNo">054</span><a id="line.54">        Image image = imageIcon.getImage(); // Convertir ImageIcon a Image</a>
+<span class="sourceLineNo">055</span><a id="line.55">        Image newImage = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Escalar la imagen</a>
+<span class="sourceLineNo">056</span><a id="line.56">        ImageIcon scaledImageIcon = new ImageIcon(newImage);</a>
+<span class="sourceLineNo">057</span><a id="line.57">        bEnrere7.setIcon(scaledImageIcon);</a>
+<span class="sourceLineNo">058</span><a id="line.58">        </a>
+<span class="sourceLineNo">059</span><a id="line.59">        ImageIcon imageIcon2 = new javax.swing.ImageIcon(getClass().getResource("/images/goma.png"));</a>
+<span class="sourceLineNo">060</span><a id="line.60">        Image image2 = imageIcon2.getImage(); // Convertir ImageIcon a Image</a>
+<span class="sourceLineNo">061</span><a id="line.61">        Image newImage2 = image2.getScaledInstance(40, 40, Image.SCALE_SMOOTH); // Escalar la imagen</a>
+<span class="sourceLineNo">062</span><a id="line.62">        ImageIcon scaledImageIcon2 = new ImageIcon(newImage2);</a>
+<span class="sourceLineNo">063</span><a id="line.63">        bBorrar.setIcon(scaledImageIcon2);</a>
+<span class="sourceLineNo">064</span><a id="line.64">        </a>
+<span class="sourceLineNo">065</span><a id="line.65">        ImageIcon imageIcon3 = new javax.swing.ImageIcon(getClass().getResource("/images/clue.png"));</a>
+<span class="sourceLineNo">066</span><a id="line.66">        Image image3 = imageIcon3.getImage(); // Convertir ImageIcon a Image</a>
+<span class="sourceLineNo">067</span><a id="line.67">        Image newImage3 = image3.getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Escalar la imagen</a>
+<span class="sourceLineNo">068</span><a id="line.68">        ImageIcon scaledImageIcon3 = new ImageIcon(newImage3);</a>
+<span class="sourceLineNo">069</span><a id="line.69">        bPista.setIcon(scaledImageIcon3);</a>
+<span class="sourceLineNo">070</span><a id="line.70">    }</a>
+<span class="sourceLineNo">071</span><a id="line.71">    /**</a>
+<span class="sourceLineNo">072</span><a id="line.72">     * Aquest metode retorna el panell del taulell de joc, on es mostren les celles del joc.</a>
+<span class="sourceLineNo">073</span><a id="line.73">     *</a>
+<span class="sourceLineNo">074</span><a id="line.74">     * @return El panell del taulell de joc.</a>
+<span class="sourceLineNo">075</span><a id="line.75">     */</a>
+<span class="sourceLineNo">076</span><a id="line.76">    public JPanel getTaulell(){</a>
+<span class="sourceLineNo">077</span><a id="line.77">        seconds = vistaPrincipal.getCronoPartida();</a>
+<span class="sourceLineNo">078</span><a id="line.78">        Integer valor = vistaPrincipal.getPistesPartida();</a>
+<span class="sourceLineNo">079</span><a id="line.79">        tPista.setText("Pistas: "+String.valueOf(valor)+"/3");</a>
+<span class="sourceLineNo">080</span><a id="line.80">        running = true;</a>
+<span class="sourceLineNo">081</span><a id="line.81">        return panel1;</a>
+<span class="sourceLineNo">082</span><a id="line.82">    }</a>
+<span class="sourceLineNo">083</span><a id="line.83">    /**</a>
+<span class="sourceLineNo">084</span><a id="line.84">     * Aquest metode retorna el panell on es mostren els numeros disponibles per a ser collocats al taulell de joc.</a>
+<span class="sourceLineNo">085</span><a id="line.85">     *</a>
+<span class="sourceLineNo">086</span><a id="line.86">     * @return El panell dels numeros de taulell.</a>
+<span class="sourceLineNo">087</span><a id="line.87">     */</a>
+<span class="sourceLineNo">088</span><a id="line.88">    public JPanel getTaulellNumeros(){</a>
+<span class="sourceLineNo">089</span><a id="line.89">        return numeros;</a>
+<span class="sourceLineNo">090</span><a id="line.90">    }</a>
+<span class="sourceLineNo">091</span><a id="line.91">    </a>
+<span class="sourceLineNo">092</span><a id="line.92">    public void getTempsPartida(){</a>
+<span class="sourceLineNo">093</span><a id="line.93">        vistaPrincipal.setTempsPartida(seconds);</a>
+<span class="sourceLineNo">094</span><a id="line.94">        //vistaPrincipal.showPanel("RankingView");</a>
+<span class="sourceLineNo">095</span><a id="line.95">    }</a>
+<span class="sourceLineNo">096</span><a id="line.96">    </a>
+<span class="sourceLineNo">097</span><a id="line.97">    public void stopTemps(){</a>
+<span class="sourceLineNo">098</span><a id="line.98">        running = false;</a>
+<span class="sourceLineNo">099</span><a id="line.99">    }</a>
+<span class="sourceLineNo">100</span><a id="line.100">    </a>
+<span class="sourceLineNo">101</span><a id="line.101">    public void continueTemps(){</a>
+<span class="sourceLineNo">102</span><a id="line.102">        running = true;</a>
+<span class="sourceLineNo">103</span><a id="line.103">    }</a>
+<span class="sourceLineNo">104</span><a id="line.104">    </a>
+<span class="sourceLineNo">105</span><a id="line.105">    public void finalitzar(){</a>
+<span class="sourceLineNo">106</span><a id="line.106">        String currentTime = tCrono1.getText();</a>
+<span class="sourceLineNo">107</span><a id="line.107">        JOptionPane.showMessageDialog(this, "Enhorabona! Has finalitzat el KENKEN amb un temps de: " + currentTime, "Informacio", JOptionPane.INFORMATION_MESSAGE);</a>
+<span class="sourceLineNo">108</span><a id="line.108">        //vistaPrincipal.showPanel("JocView");</a>
+<span class="sourceLineNo">109</span><a id="line.109">    }</a>
+<span class="sourceLineNo">110</span><a id="line.110">    /**</a>
+<span class="sourceLineNo">111</span><a id="line.111">     * This method is called from within the constructor to initialize the form.</a>
+<span class="sourceLineNo">112</span><a id="line.112">     * WARNING: Do NOT modify this code. The content of this method is always</a>
+<span class="sourceLineNo">113</span><a id="line.113">     * regenerated by the Form Editor.</a>
+<span class="sourceLineNo">114</span><a id="line.114">     */</a>
+<span class="sourceLineNo">115</span><a id="line.115">    @SuppressWarnings("unchecked")</a>
+<span class="sourceLineNo">116</span><a id="line.116">    // &lt;editor-fold defaultstate="collapsed" desc="Generated Code"&gt;//GEN-BEGIN:initComponents</a>
+<span class="sourceLineNo">117</span><a id="line.117">    private void initComponents() {</a>
+<span class="sourceLineNo">118</span><a id="line.118"></a>
+<span class="sourceLineNo">119</span><a id="line.119">        panelinfo1 = new javax.swing.JPanel();</a>
+<span class="sourceLineNo">120</span><a id="line.120">        bEnrere7 = new javax.swing.JButton();</a>
+<span class="sourceLineNo">121</span><a id="line.121">        tCrono1 = new javax.swing.JLabel();</a>
+<span class="sourceLineNo">122</span><a id="line.122">        aux4 = new javax.swing.JPanel();</a>
+<span class="sourceLineNo">123</span><a id="line.123">        tPista = new javax.swing.JLabel();</a>
+<span class="sourceLineNo">124</span><a id="line.124">        bPista = new javax.swing.JButton();</a>
+<span class="sourceLineNo">125</span><a id="line.125">        eines = new javax.swing.JPanel();</a>
+<span class="sourceLineNo">126</span><a id="line.126">        bBorrar = new javax.swing.JButton();</a>
+<span class="sourceLineNo">127</span><a id="line.127">        numeros = new javax.swing.JPanel();</a>
+<span class="sourceLineNo">128</span><a id="line.128">        panel1 = new javax.swing.JPanel();</a>
+<span class="sourceLineNo">129</span><a id="line.129"></a>
+<span class="sourceLineNo">130</span><a id="line.130">        setBackground(new java.awt.Color(204, 204, 255));</a>
+<span class="sourceLineNo">131</span><a id="line.131">        setMaximumSize(new java.awt.Dimension(800, 800));</a>
+<span class="sourceLineNo">132</span><a id="line.132">        setMinimumSize(new java.awt.Dimension(800, 800));</a>
+<span class="sourceLineNo">133</span><a id="line.133">        setPreferredSize(new java.awt.Dimension(800, 800));</a>
+<span class="sourceLineNo">134</span><a id="line.134"></a>
+<span class="sourceLineNo">135</span><a id="line.135">        panelinfo1.setBackground(new java.awt.Color(204, 204, 255));</a>
+<span class="sourceLineNo">136</span><a id="line.136">        panelinfo1.setLayout(new java.awt.GridLayout(1, 0, 10, 0));</a>
+<span class="sourceLineNo">137</span><a id="line.137"></a>
+<span class="sourceLineNo">138</span><a id="line.138">        bEnrere7.setBorderPainted(false);</a>
+<span class="sourceLineNo">139</span><a id="line.139">        bEnrere7.setContentAreaFilled(false);</a>
+<span class="sourceLineNo">140</span><a id="line.140">        bEnrere7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</a>
+<span class="sourceLineNo">141</span><a id="line.141">        bEnrere7.addActionListener(new java.awt.event.ActionListener() {</a>
+<span class="sourceLineNo">142</span><a id="line.142">            public void actionPerformed(java.awt.event.ActionEvent evt) {</a>
+<span class="sourceLineNo">143</span><a id="line.143">                bEnrere7ActionPerformed(evt);</a>
+<span class="sourceLineNo">144</span><a id="line.144">            }</a>
+<span class="sourceLineNo">145</span><a id="line.145">        });</a>
+<span class="sourceLineNo">146</span><a id="line.146">        panelinfo1.add(bEnrere7);</a>
+<span class="sourceLineNo">147</span><a id="line.147"></a>
+<span class="sourceLineNo">148</span><a id="line.148">        tCrono1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N</a>
+<span class="sourceLineNo">149</span><a id="line.149">        tCrono1.setText("Crono: 0.0");</a>
+<span class="sourceLineNo">150</span><a id="line.150">        panelinfo1.add(tCrono1);</a>
+<span class="sourceLineNo">151</span><a id="line.151"></a>
+<span class="sourceLineNo">152</span><a id="line.152">        aux4.setBackground(new java.awt.Color(204, 204, 255));</a>
+<span class="sourceLineNo">153</span><a id="line.153"></a>
+<span class="sourceLineNo">154</span><a id="line.154">        javax.swing.GroupLayout aux4Layout = new javax.swing.GroupLayout(aux4);</a>
+<span class="sourceLineNo">155</span><a id="line.155">        aux4.setLayout(aux4Layout);</a>
+<span class="sourceLineNo">156</span><a id="line.156">        aux4Layout.setHorizontalGroup(</a>
+<span class="sourceLineNo">157</span><a id="line.157">            aux4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</a>
+<span class="sourceLineNo">158</span><a id="line.158">            .addGap(0, 152, Short.MAX_VALUE)</a>
+<span class="sourceLineNo">159</span><a id="line.159">        );</a>
+<span class="sourceLineNo">160</span><a id="line.160">        aux4Layout.setVerticalGroup(</a>
+<span class="sourceLineNo">161</span><a id="line.161">            aux4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</a>
+<span class="sourceLineNo">162</span><a id="line.162">            .addGap(0, 25, Short.MAX_VALUE)</a>
+<span class="sourceLineNo">163</span><a id="line.163">        );</a>
+<span class="sourceLineNo">164</span><a id="line.164"></a>
+<span class="sourceLineNo">165</span><a id="line.165">        panelinfo1.add(aux4);</a>
+<span class="sourceLineNo">166</span><a id="line.166"></a>
+<span class="sourceLineNo">167</span><a id="line.167">        tPista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N</a>
+<span class="sourceLineNo">168</span><a id="line.168">        tPista.setText("Pistas: 3/3");</a>
+<span class="sourceLineNo">169</span><a id="line.169">        panelinfo1.add(tPista);</a>
+<span class="sourceLineNo">170</span><a id="line.170"></a>
+<span class="sourceLineNo">171</span><a id="line.171">        bPista.setBackground(new java.awt.Color(204, 204, 255));</a>
+<span class="sourceLineNo">172</span><a id="line.172">        bPista.setBorder(null);</a>
+<span class="sourceLineNo">173</span><a id="line.173">        bPista.setBorderPainted(false);</a>
+<span class="sourceLineNo">174</span><a id="line.174">        bPista.setContentAreaFilled(false);</a>
+<span class="sourceLineNo">175</span><a id="line.175">        bPista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</a>
+<span class="sourceLineNo">176</span><a id="line.176">        bPista.addActionListener(new java.awt.event.ActionListener() {</a>
+<span class="sourceLineNo">177</span><a id="line.177">            public void actionPerformed(java.awt.event.ActionEvent evt) {</a>
+<span class="sourceLineNo">178</span><a id="line.178">                bPistaActionPerformed(evt);</a>
+<span class="sourceLineNo">179</span><a id="line.179">            }</a>
+<span class="sourceLineNo">180</span><a id="line.180">        });</a>
+<span class="sourceLineNo">181</span><a id="line.181">        panelinfo1.add(bPista);</a>
+<span class="sourceLineNo">182</span><a id="line.182"></a>
+<span class="sourceLineNo">183</span><a id="line.183">        eines.setBackground(new java.awt.Color(204, 204, 255));</a>
+<span class="sourceLineNo">184</span><a id="line.184">        eines.setMaximumSize(new java.awt.Dimension(800, 50));</a>
+<span class="sourceLineNo">185</span><a id="line.185">        eines.setMinimumSize(new java.awt.Dimension(800, 50));</a>
+<span class="sourceLineNo">186</span><a id="line.186">        eines.setPreferredSize(new java.awt.Dimension(800, 50));</a>
+<span class="sourceLineNo">187</span><a id="line.187"></a>
+<span class="sourceLineNo">188</span><a id="line.188">        bBorrar.setBorder(null);</a>
+<span class="sourceLineNo">189</span><a id="line.189">        bBorrar.setBorderPainted(false);</a>
+<span class="sourceLineNo">190</span><a id="line.190">        bBorrar.setContentAreaFilled(false);</a>
+<span class="sourceLineNo">191</span><a id="line.191">        bBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</a>
+<span class="sourceLineNo">192</span><a id="line.192">        bBorrar.setPreferredSize(new java.awt.Dimension(50, 50));</a>
+<span class="sourceLineNo">193</span><a id="line.193">        bBorrar.addActionListener(new java.awt.event.ActionListener() {</a>
+<span class="sourceLineNo">194</span><a id="line.194">            public void actionPerformed(java.awt.event.ActionEvent evt) {</a>
+<span class="sourceLineNo">195</span><a id="line.195">                bBorrarActionPerformed(evt);</a>
+<span class="sourceLineNo">196</span><a id="line.196">            }</a>
+<span class="sourceLineNo">197</span><a id="line.197">        });</a>
+<span class="sourceLineNo">198</span><a id="line.198"></a>
+<span class="sourceLineNo">199</span><a id="line.199">        numeros.setLayout(new java.awt.GridLayout(1, 0));</a>
+<span class="sourceLineNo">200</span><a id="line.200"></a>
+<span class="sourceLineNo">201</span><a id="line.201">        javax.swing.GroupLayout einesLayout = new javax.swing.GroupLayout(eines);</a>
+<span class="sourceLineNo">202</span><a id="line.202">        eines.setLayout(einesLayout);</a>
+<span class="sourceLineNo">203</span><a id="line.203">        einesLayout.setHorizontalGroup(</a>
+<span class="sourceLineNo">204</span><a id="line.204">            einesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</a>
+<span class="sourceLineNo">205</span><a id="line.205">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, einesLayout.createSequentialGroup()</a>
+<span class="sourceLineNo">206</span><a id="line.206">                .addGap(730, 730, 730)</a>
+<span class="sourceLineNo">207</span><a id="line.207">                .addComponent(bBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)</a>
+<span class="sourceLineNo">208</span><a id="line.208">                .addGap(30, 30, 30))</a>
+<span class="sourceLineNo">209</span><a id="line.209">            .addGroup(einesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</a>
+<span class="sourceLineNo">210</span><a id="line.210">                .addGroup(einesLayout.createSequentialGroup()</a>
+<span class="sourceLineNo">211</span><a id="line.211">                    .addContainerGap()</a>
+<span class="sourceLineNo">212</span><a id="line.212">                    .addComponent(numeros, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)</a>
+<span class="sourceLineNo">213</span><a id="line.213">                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))</a>
+<span class="sourceLineNo">214</span><a id="line.214">        );</a>
+<span class="sourceLineNo">215</span><a id="line.215">        einesLayout.setVerticalGroup(</a>
+<span class="sourceLineNo">216</span><a id="line.216">            einesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</a>
+<span class="sourceLineNo">217</span><a id="line.217">            .addGroup(einesLayout.createSequentialGroup()</a>
+<span class="sourceLineNo">218</span><a id="line.218">                .addContainerGap()</a>
+<span class="sourceLineNo">219</span><a id="line.219">                .addComponent(bBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)</a>
+<span class="sourceLineNo">220</span><a id="line.220">                .addContainerGap())</a>
+<span class="sourceLineNo">221</span><a id="line.221">            .addGroup(einesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</a>
+<span class="sourceLineNo">222</span><a id="line.222">                .addGroup(einesLayout.createSequentialGroup()</a>
+<span class="sourceLineNo">223</span><a id="line.223">                    .addGap(4, 4, 4)</a>
+<span class="sourceLineNo">224</span><a id="line.224">                    .addComponent(numeros, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)</a>
+<span class="sourceLineNo">225</span><a id="line.225">                    .addGap(5, 5, 5)))</a>
+<span class="sourceLineNo">226</span><a id="line.226">        );</a>
+<span class="sourceLineNo">227</span><a id="line.227"></a>
+<span class="sourceLineNo">228</span><a id="line.228">        panel1.setBackground(new java.awt.Color(0, 0, 0));</a>
+<span class="sourceLineNo">229</span><a id="line.229">        panel1.setPreferredSize(new java.awt.Dimension(340, 340));</a>
+<span class="sourceLineNo">230</span><a id="line.230"></a>
+<span class="sourceLineNo">231</span><a id="line.231">        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);</a>
+<span class="sourceLineNo">232</span><a id="line.232">        panel1.setLayout(panel1Layout);</a>
+<span class="sourceLineNo">233</span><a id="line.233">        panel1Layout.setHorizontalGroup(</a>
+<span class="sourceLineNo">234</span><a id="line.234">            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</a>
+<span class="sourceLineNo">235</span><a id="line.235">            .addGap(0, 0, Short.MAX_VALUE)</a>
+<span class="sourceLineNo">236</span><a id="line.236">        );</a>
+<span class="sourceLineNo">237</span><a id="line.237">        panel1Layout.setVerticalGroup(</a>
+<span class="sourceLineNo">238</span><a id="line.238">            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</a>
+<span class="sourceLineNo">239</span><a id="line.239">            .addGap(0, 659, Short.MAX_VALUE)</a>
+<span class="sourceLineNo">240</span><a id="line.240">        );</a>
+<span class="sourceLineNo">241</span><a id="line.241"></a>
+<span class="sourceLineNo">242</span><a id="line.242">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);</a>
+<span class="sourceLineNo">243</span><a id="line.243">        this.setLayout(layout);</a>
+<span class="sourceLineNo">244</span><a id="line.244">        layout.setHorizontalGroup(</a>
+<span class="sourceLineNo">245</span><a id="line.245">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</a>
+<span class="sourceLineNo">246</span><a id="line.246">            .addComponent(panelinfo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</a>
+<span class="sourceLineNo">247</span><a id="line.247">            .addGroup(layout.createSequentialGroup()</a>
+<span class="sourceLineNo">248</span><a id="line.248">                .addGap(15, 15, 15)</a>
+<span class="sourceLineNo">249</span><a id="line.249">                .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)</a>
+<span class="sourceLineNo">250</span><a id="line.250">                .addGap(30, 30, 30))</a>
+<span class="sourceLineNo">251</span><a id="line.251">            .addComponent(eines, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</a>
+<span class="sourceLineNo">252</span><a id="line.252">        );</a>
+<span class="sourceLineNo">253</span><a id="line.253">        layout.setVerticalGroup(</a>
+<span class="sourceLineNo">254</span><a id="line.254">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</a>
+<span class="sourceLineNo">255</span><a id="line.255">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</a>
+<span class="sourceLineNo">256</span><a id="line.256">                .addGap(0, 0, 0)</a>
+<span class="sourceLineNo">257</span><a id="line.257">                .addComponent(panelinfo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</a>
+<span class="sourceLineNo">258</span><a id="line.258">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</a>
+<span class="sourceLineNo">259</span><a id="line.259">                .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)</a>
+<span class="sourceLineNo">260</span><a id="line.260">                .addGap(15, 15, 15)</a>
+<span class="sourceLineNo">261</span><a id="line.261">                .addComponent(eines, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</a>
+<span class="sourceLineNo">262</span><a id="line.262">                .addGap(45, 45, 45))</a>
+<span class="sourceLineNo">263</span><a id="line.263">        );</a>
+<span class="sourceLineNo">264</span><a id="line.264">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</a>
+<span class="sourceLineNo">265</span><a id="line.265"></a>
+<span class="sourceLineNo">266</span><a id="line.266">    private void bEnrere7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEnrere7ActionPerformed</a>
+<span class="sourceLineNo">267</span><a id="line.267">        // TODO add your handling code here:</a>
+<span class="sourceLineNo">268</span><a id="line.268">        //setter</a>
+<span class="sourceLineNo">269</span><a id="line.269">        vistaPrincipal.setTempsPartida(seconds);</a>
+<span class="sourceLineNo">270</span><a id="line.270">        vistaPrincipal.showPanel("JocView");</a>
+<span class="sourceLineNo">271</span><a id="line.271">    }//GEN-LAST:event_bEnrere7ActionPerformed</a>
+<span class="sourceLineNo">272</span><a id="line.272"></a>
+<span class="sourceLineNo">273</span><a id="line.273">    private void bPistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPistaActionPerformed</a>
+<span class="sourceLineNo">274</span><a id="line.274">        // TODO add your handling code here:</a>
+<span class="sourceLineNo">275</span><a id="line.275">        //pedir pista</a>
+<span class="sourceLineNo">276</span><a id="line.276">        String t = tPista.getText();</a>
+<span class="sourceLineNo">277</span><a id="line.277">        Integer valor = Integer.parseInt(String.valueOf(t.charAt(8)));</a>
+<span class="sourceLineNo">278</span><a id="line.278">        if(valor &gt;= 1){</a>
+<span class="sourceLineNo">279</span><a id="line.279">            Integer x = vistaPrincipal.getSeleccionado_x();</a>
+<span class="sourceLineNo">280</span><a id="line.280">            Integer y = vistaPrincipal.getSeleccionado_y();</a>
+<span class="sourceLineNo">281</span><a id="line.281">            if(x != -1 &amp;&amp; y != -1){</a>
+<span class="sourceLineNo">282</span><a id="line.282">                try{</a>
+<span class="sourceLineNo">283</span><a id="line.283">                    vistaPrincipal.ajuda(x, y);</a>
+<span class="sourceLineNo">284</span><a id="line.284">                    valor = valor - 1;</a>
+<span class="sourceLineNo">285</span><a id="line.285">                    vistaPrincipal.getValorCela(x, y);</a>
+<span class="sourceLineNo">286</span><a id="line.286">                    //cosetes a fer</a>
+<span class="sourceLineNo">287</span><a id="line.287">                } catch (Exception e){</a>
+<span class="sourceLineNo">288</span><a id="line.288">                    if(e.getMessage().equals("Aquesta cella ja te un valor. Esborra'l abans de demanar pista.")){</a>
+<span class="sourceLineNo">289</span><a id="line.289">                        JOptionPane.showMessageDialog(null, "Error al solucionar el Kenken: " + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);</a>
+<span class="sourceLineNo">290</span><a id="line.290">                    } else {</a>
+<span class="sourceLineNo">291</span><a id="line.291">                        Object[] options = {"SI", "NO"};</a>
+<span class="sourceLineNo">292</span><a id="line.292"></a>
+<span class="sourceLineNo">293</span><a id="line.293">                        // Muestra el JOptionPane</a>
+<span class="sourceLineNo">294</span><a id="line.294">                        Integer option = JOptionPane.showOptionDialog(</a>
+<span class="sourceLineNo">295</span><a id="line.295">                            null,</a>
+<span class="sourceLineNo">296</span><a id="line.296">                            "La teva solucio proposada es incorrecta, vols saber una possible solucio d'aquesta cella?:",</a>
+<span class="sourceLineNo">297</span><a id="line.297">                            "Confirmacio",</a>
+<span class="sourceLineNo">298</span><a id="line.298">                            JOptionPane.YES_NO_OPTION,</a>
+<span class="sourceLineNo">299</span><a id="line.299">                            JOptionPane.QUESTION_MESSAGE,</a>
+<span class="sourceLineNo">300</span><a id="line.300">                            null,</a>
+<span class="sourceLineNo">301</span><a id="line.301">                            options,</a>
+<span class="sourceLineNo">302</span><a id="line.302">                            options[0]</a>
+<span class="sourceLineNo">303</span><a id="line.303">                        );</a>
+<span class="sourceLineNo">304</span><a id="line.304"></a>
+<span class="sourceLineNo">305</span><a id="line.305"></a>
+<span class="sourceLineNo">306</span><a id="line.306"></a>
+<span class="sourceLineNo">307</span><a id="line.307">                        // Verifica que opcion fue seleccionada</a>
+<span class="sourceLineNo">308</span><a id="line.308">                        if (option == JOptionPane.YES_OPTION) {</a>
+<span class="sourceLineNo">309</span><a id="line.309">                            try{</a>
+<span class="sourceLineNo">310</span><a id="line.310">                                vistaPrincipal.ajudaExtra(x, y);</a>
+<span class="sourceLineNo">311</span><a id="line.311">                                valor = valor - 1;</a>
+<span class="sourceLineNo">312</span><a id="line.312">                                vistaPrincipal.getValorCela(x, y);</a>
+<span class="sourceLineNo">313</span><a id="line.313">                            } catch (Exception e2){</a>
+<span class="sourceLineNo">314</span><a id="line.314">                                JOptionPane.showMessageDialog(null, "Eror al solucionar el Kenken: " + e2.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);</a>
+<span class="sourceLineNo">315</span><a id="line.315">                            }</a>
+<span class="sourceLineNo">316</span><a id="line.316">                        }</a>
+<span class="sourceLineNo">317</span><a id="line.317">                    }</a>
+<span class="sourceLineNo">318</span><a id="line.318">                }</a>
+<span class="sourceLineNo">319</span><a id="line.319">                tPista.setText("Pistas: "+String.valueOf(valor)+"/3");</a>
+<span class="sourceLineNo">320</span><a id="line.320">            } else JOptionPane.showMessageDialog(null, "Selecciona una cella Primer!", "Warning", JOptionPane.WARNING_MESSAGE);</a>
+<span class="sourceLineNo">321</span><a id="line.321">        }else{</a>
+<span class="sourceLineNo">322</span><a id="line.322">            JOptionPane.showMessageDialog(null, "No et queden Pistes", "Warning", JOptionPane.WARNING_MESSAGE);</a>
+<span class="sourceLineNo">323</span><a id="line.323">        }</a>
+<span class="sourceLineNo">324</span><a id="line.324">    }//GEN-LAST:event_bPistaActionPerformed</a>
+<span class="sourceLineNo">325</span><a id="line.325"></a>
+<span class="sourceLineNo">326</span><a id="line.326">    private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed</a>
+<span class="sourceLineNo">327</span><a id="line.327">        // TODO add your handling code here:</a>
+<span class="sourceLineNo">328</span><a id="line.328">        vistaPrincipal.borrar();</a>
+<span class="sourceLineNo">329</span><a id="line.329">    }//GEN-LAST:event_bBorrarActionPerformed</a>
+<span class="sourceLineNo">330</span><a id="line.330"></a>
+<span class="sourceLineNo">331</span><a id="line.331"></a>
+<span class="sourceLineNo">332</span><a id="line.332">    // Variables declaration - do not modify//GEN-BEGIN:variables</a>
+<span class="sourceLineNo">333</span><a id="line.333">    private javax.swing.JPanel aux4;</a>
+<span class="sourceLineNo">334</span><a id="line.334">    private javax.swing.JButton bBorrar;</a>
+<span class="sourceLineNo">335</span><a id="line.335">    private javax.swing.JButton bEnrere7;</a>
+<span class="sourceLineNo">336</span><a id="line.336">    private javax.swing.JButton bPista;</a>
+<span class="sourceLineNo">337</span><a id="line.337">    private javax.swing.JPanel eines;</a>
+<span class="sourceLineNo">338</span><a id="line.338">    private javax.swing.JPanel numeros;</a>
+<span class="sourceLineNo">339</span><a id="line.339">    private javax.swing.JPanel panel1;</a>
+<span class="sourceLineNo">340</span><a id="line.340">    private javax.swing.JPanel panelinfo1;</a>
+<span class="sourceLineNo">341</span><a id="line.341">    private javax.swing.JLabel tCrono1;</a>
+<span class="sourceLineNo">342</span><a id="line.342">    private javax.swing.JLabel tPista;</a>
+<span class="sourceLineNo">343</span><a id="line.343">    // End of variables declaration//GEN-END:variables</a>
+<span class="sourceLineNo">344</span><a id="line.344">}</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</main>
+</body>
+</html>

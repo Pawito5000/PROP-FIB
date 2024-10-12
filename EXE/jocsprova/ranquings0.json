@@ -1,0 +1,36 @@
+[
+    {
+      "idkenken": 1,
+      "rankings": [
+        {
+          "tiempo": "00:04:50",
+          "username": "admin"
+        },
+        {
+          "tiempo": "00:05:10",
+          "username": "User22"
+        },
+        {
+          "tiempo": "00:06:25",
+          "username": "JuliaB"
+        },
+        {
+          "tiempo": "01:20:05",
+          "username": "MartiC"
+        }
+      ]
+    },
+    {
+      "idkenken": 2,
+      "rankings": [
+        {
+          "tiempo": "00:07:20",
+          "username": "PauN"
+        },
+        {
+            "tiempo": "00:07:33",
+            "username": "User20"
+        }
+    ]
+    }
+]

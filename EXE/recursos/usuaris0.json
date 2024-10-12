@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "nom": "marcelMB",
+    "contrasenya": "mmmm",
+    "contador": 1
+  },
+  {
+    "id": 2,
+    "nom": "a",
+    "contrasenya": "a",
+    "contador": 0
+  },
+  {
+    "id": 0,
+    "nom": "afsfa",
+    "contrasenya": "dfada",
+    "contador": 0
+  },
+  {
+    "id": 2,
+    "nom": "JuliaB",
+    "contrasenya": "marcel",
+    "contador": 0
+  },
+  {
+    "id": 1,
+    "nom": "PauN",
+    "contrasenya": "aaa",
+    "contador": 5
+  },
+  {
+    "id": 0,
+    "nom": "Juan",
+    "contrasenya": "7777",
+    "contador": 2
+  }
+]
